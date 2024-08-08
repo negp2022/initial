@@ -1,0 +1,221 @@
+{
+   "tables":{
+      "Categories":{
+         "CategoryID":"int",
+         "Name":"varchar",
+         "Description":"varchar"
+      },
+      "Cities":{
+         "CityID":"int",
+         "ProvinceID":"int",
+         "Name":"varchar"
+      },
+      "Countries":{
+         "CountryID":"int",
+         "Name":"varchar",
+         "Code":"varchar"
+      },
+      "CustomerAddresses":{
+         "CustomerAddressID":"int",
+         "CustomerID":"int",
+         "Address":"varchar"
+      },
+      "Customers":{
+         "CustomerID":"int",
+         "Name":"varchar",
+         "LastName":"varchar",
+         "Email":"varchar",
+         "Phone":"varchar",
+         "Address":"varchar"
+      },
+      "Departments":{
+         "DepartmentID":"int",
+         "Name":"varchar",
+         "Description":"varchar"
+      },
+      "Districts":{
+         "DistrictID":"int",
+         "CityID":"int",
+         "Name":"varchar"
+      },
+      "EmployeeRoles":{
+         "EmployeeRoleID":"int",
+         "EmployeeID":"int",
+         "RoleID":"int"
+      },
+      "Employees":{
+         "EmployeeID":"int",
+         "Name":"varchar",
+         "Email":"varchar",
+         "Phone":"varchar",
+         "Position":"varchar"
+      },
+      "GiftCards":{
+         "GiftCardID":"int",
+         "CustomerID":"int",
+         "Amount":"decimal",
+         "Date":"datetime"
+      },
+      "Inventory":{
+         "InventoryID":"int",
+         "ProductID":"int",
+         "Quantity":"int",
+         "WarehouseID":"int"
+      },
+      "OrderDetails":{
+         "OrderDetailID":"int",
+         "OrderID":"int",
+         "ProductID":"int",
+         "Quantity":"int",
+         "UnitPrice":"decimal"
+      },
+      "Orders":{
+         "OrderID":"int",
+         "CustomerID":"int",
+         "OrderDate":"datetime",
+         "Total":"decimal",
+         "Status":"varchar"
+      },
+      "OrderStatus":{
+         "OrderStatusID":"int",
+         "OrderID":"int",
+         "Status":"varchar",
+         "Date":"datetime"
+      },
+      "Payments":{
+         "PaymentID":"int",
+         "OrderID":"int",
+         "PaymentMethod":"varchar",
+         "PaymentDate":"datetime",
+         "Amount":"decimal"
+      },
+      "ProductImages":{
+         "ProductImageID":"int",
+         "ProductID":"int",
+         "Image":"varchar"
+      },
+      "ProductReviews":{
+         "ProductReviewID":"int",
+         "ProductID":"int",
+         "CustomerID":"int",
+         "Review":"varchar",
+         "Rating":"int"
+      },
+      "Products":{
+         "ProductID":"int",
+         "Name":"varchar",
+         "Description":"varchar",
+         "Price":"decimal",
+         "Stock":"int",
+         "CategoryID":"int",
+         "SupplierID":"int"
+      },
+      "Provinces":{
+         "ProvinceID":"int",
+         "RegionID":"int",
+         "Name":"varchar"
+      },
+      "Regions":{
+         "RegionID":"int",
+         "CountryID":"int",
+         "Name":"varchar"
+      },
+      "Returns":{
+         "ReturnID":"int",
+         "OrderID":"int",
+         "ProductID":"int",
+         "Reason":"varchar",
+         "Date":"datetime"
+      },
+      "Roles":{
+         "RoleID":"int",
+         "Name":"varchar",
+         "Description":"varchar"
+      },
+      "Shipping":{
+         "ShippingID":"int",
+         "OrderID":"int",
+         "Carrier":"varchar",
+         "TrackingNumber":"varchar",
+         "Date":"datetime"
+      },
+      "Suppliers":{
+         "SupplierID":"int",
+         "Name":"varchar",
+         "Address":"varchar",
+         "Phone":"varchar",
+         "Email":"varchar"
+      },
+      "Warehouses":{
+         "WarehouseID":"int",
+         "Name":"varchar",
+         "Address":"varchar"
+      },
+      "ZipCodes":{
+         "ZipCodeID":"int",
+         "DistrictID":"int",
+         "Code":"varchar"
+      }
+   },
+   "relations":{
+      "Products":{
+         "CategoryID":"> Categories.CategoryID",
+         "SupplierID":"> Suppliers.SupplierID"
+      },
+      "Orders":{
+         "CustomerID":"> Customers.CustomerID"
+      },
+      "OrderDetails":{
+         "OrderID":"> Orders.OrderID",
+         "ProductID":"> Products.ProductID"
+      },
+      "Payments":{
+         "OrderID":"> Orders.OrderID"
+      },
+      "Inventory":{
+         "ProductID":"> Products.ProductID"
+      },
+      "EmployeeRoles":{
+         "EmployeeID":"> Employees.EmployeeID",
+         "RoleID":"> Roles.RoleID"
+      },
+      "CustomerAddresses":{
+         "CustomerID":"> Customers.CustomerID"
+      },
+      "ProductImages":{
+         "ProductID":"> Products.ProductID"
+      },
+      "ProductReviews":{
+         "ProductID":"> Products.ProductID",
+         "CustomerID":"> Customers.CustomerID"
+      },
+      "OrderStatus":{
+         "OrderID":"> Orders.OrderID"
+      },
+      "Shipping":{
+         "OrderID":"> Orders.OrderID"
+      },
+      "Returns":{
+         "OrderID":"> Orders.OrderID",
+         "ProductID":"> Products.ProductID"
+      },
+      "GiftCards":{
+         "CustomerID":"> Customers.CustomerID"
+      },
+      "Regions":{
+         "CountryID":"> Countries.CountryID"
+      },
+      "Provinces":{
+         "RegionID":"> Regions.RegionID"
+      },
+      "Cities":{
+         "ProvinceID":"> Provinces.ProvinceID"
+      },
+      "Districts":{
+         "CityID":"> Cities.CityID"
+      },
+      "ZipCodes":{
+         "DistrictID":"> Districts.DistrictID"
+      }
+   }
+}

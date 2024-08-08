@@ -1,0 +1,55 @@
+INSERT INTO Customers (Name, LastName, Email, Phone, Address) VALUES ('Juan', 'Pérez', 'juan.perez@example.com', '123456789', 'Calle 1, Santiago');
+INSERT INTO Customers (Name, LastName, Email, Phone, Address) VALUES ('María', 'González', 'maria.gonzalez@example.com', '987654321', 'Calle 2, Valparaíso');
+INSERT INTO Customers (Name, LastName, Email, Phone, Address) VALUES ('Pedro', 'Rodríguez', 'pedro.rodriguez@example.com', '555123456', 'Calle 3, Concepción');
+INSERT INTO Customers (Name, LastName, Email, Phone, Address) VALUES ('Ana', 'Díaz', 'ana.diaz@example.com', '666789012', 'Calle 4, La Serena');
+INSERT INTO Customers (Name, LastName, Email, Phone, Address) VALUES ('Luis', 'Fernández', 'luis.fernandez@example.com', '777901234', 'Calle 5, Antofagasta');
+INSERT INTO Customers (Name, LastName, Email, Phone, Address) VALUES ('Sofía', 'García', 'sofia.garcia@example.com', '888112233', 'Calle 6, Temuco');
+INSERT INTO Customers (Name, LastName, Email, Phone, Address) VALUES ('Miguel', 'Hernández', 'miguel.hernandez@example.com', '999345678', 'Calle 7, Rancagua');
+INSERT INTO Customers (Name, LastName, Email, Phone, Address) VALUES ('Lucía', 'Martínez', 'lucia.martinez@example.com', '111234567', 'Calle 8, Talca');
+INSERT INTO Customers (Name, LastName, Email, Phone, Address) VALUES ('Gabriel', 'González', 'gabriel.gonzalez@example.com', '222345678', 'Calle 9, Curicó');
+INSERT INTO Customers (Name, LastName, Email, Phone, Address) VALUES ('Daniela', 'Rodríguez', 'daniela.rodriguez@example.com', '333456789', 'Calle 10, San Fernando');
+
+INSERT INTO Employees (Name, Email, Position) VALUES ('Sofía Gómez', 'sofia.gomez@empresa.com', 'Gerente');
+INSERT INTO Employees (Name, Email, Position) VALUES ('Mateo Díaz', 'mateo.diaz@empresa.com', 'Ingeniero');
+INSERT INTO Employees (Name, Email, Position) VALUES ('Luciana Pérez', 'luciana.perez@empresa.com', 'Diseñadora');
+INSERT INTO Employees (Name, Email, Position) VALUES ('Julián Sánchez', 'julian.sanchez@empresa.com', 'Desarrollador');
+INSERT INTO Employees (Name, Email, Position) VALUES ('Valeria Rodríguez', 'valeria.rodriguez@empresa.com', 'Marketing');
+INSERT INTO Employees (Name, Email, Position) VALUES ('Gabriel López', 'gabriel.lopez@empresa.com', 'Ventas');
+INSERT INTO Employees (Name, Email, Position) VALUES ('Daniela García', 'daniela.garcia@empresa.com', 'RRHH');
+INSERT INTO Employees (Name, Email, Position) VALUES ('Cristian Martínez', 'cristian.martinez@empresa.com', 'Finanzas');
+INSERT INTO Employees (Name, Email, Position) VALUES ('Natalia Hernández', 'natalia.hernandez@empresa.com', 'Logística');
+INSERT INTO Employees (Name, Email, Position) VALUES ('Fernando González', 'fernando.gonzalez@empresa.com', 'IT');
+
+INSERT INTO Roles (Name, Description) VALUES ('Gerente', 'Rol de gerente');
+INSERT INTO Roles (Name, Description) VALUES ('Asistente', 'Rol de asistente');
+INSERT INTO Roles (Name, Description) VALUES ('Vendedor', 'Rol de vendedor');
+INSERT INTO Roles (Name, Description) VALUES ('Contadora', 'Rol de contadora');
+INSERT INTO Roles (Name, Description) VALUES ('Ingeniero', 'Rol de ingeniero');
+INSERT INTO Roles (Name, Description) VALUES ('Diseñadora', 'Rol de diseñadora');
+INSERT INTO Roles (Name, Description) VALUES ('Programador', 'Rol de programador');
+INSERT INTO Roles (Name, Description) VALUES ('Marketing', 'Rol de marketing');
+INSERT INTO Roles (Name, Description) VALUES ('Ventas', 'Rol de ventas');
+INSERT INTO Roles (Name, Description) VALUES ('RRHH', 'Rol de recursos humanos');
+
+INSERT INTO EmployeeRoles (EmployeeID, RoleID) VALUES (1, 1);
+INSERT INTO EmployeeRoles (EmployeeID, RoleID) VALUES (2, 5);
+INSERT INTO EmployeeRoles (EmployeeID, RoleID) VALUES (3, 6);
+INSERT INTO EmployeeRoles (EmployeeID, RoleID) VALUES (4, 7);
+INSERT INTO EmployeeRoles (EmployeeID, RoleID) VALUES (5, 8);
+INSERT INTO EmployeeRoles (EmployeeID, RoleID) VALUES (6, 3);
+INSERT INTO EmployeeRoles (EmployeeID, RoleID) VALUES (7, 10);
+INSERT INTO EmployeeRoles (EmployeeID, RoleID) VALUES (8, 4);
+INSERT INTO EmployeeRoles (EmployeeID, RoleID) VALUES (9, 2);
+INSERT INTO EmployeeRoles (EmployeeID, RoleID) VALUES (10, 5);
+
+INSERT INTO CustomerAddresses (CustomerID, Address) VALUES (4, 'Calle 8, Talca');
+INSERT INTO CustomerAddresses (CustomerID, Address) VALUES (5, 'Calle 9, Curicó');
+INSERT INTO CustomerAddresses (CustomerID, Address) VALUES (5, 'Calle 10, San Fernando');
+INSERT INTO CustomerAddresses (CustomerID, Address) VALUES (6, 'Calle 11, Puente Alto');
+INSERT INTO CustomerAddresses (CustomerID, Address) VALUES (6, 'Calle 12, Viña del Mar');
+INSERT INTO CustomerAddresses (CustomerID, Address) VALUES (7, 'Calle 13, Valdivia');
+INSERT INTO CustomerAddresses (CustomerID, Address) VALUES (7, 'Calle 14, Osorno');
+INSERT INTO CustomerAddresses (CustomerID, Address) VALUES (8, 'Calle 15, Coyhaique');
+INSERT INTO CustomerAddresses (CustomerID, Address) VALUES (8, 'Calle 16, Punta Arenas');
+INSERT INTO CustomerAddresses (CustomerID, Address) VALUES (9, 'Calle 17, Arica');
+INSERT INTO CustomerAddresses (CustomerID, Address) VALUES (9, 'Calle 18, Iquique');

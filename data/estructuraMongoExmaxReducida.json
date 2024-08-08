@@ -1,0 +1,1600 @@
+{
+    
+{
+        "Brand" : {
+                "_id" : "object",
+                "disabled" : "boolean",
+                "name" : "string",
+                "description" : "string",
+                "version" : "number",
+                "createdAt" : "object",
+                "id" : "object",
+                "updatedAt" : "object"
+        }
+}
+{ "BrandAttribute" : { } }
+{
+        "BridgeAction" : {
+                "_id" : "object",
+                "ref" : "number",
+                "name" : "string",
+                "description" : "string",
+                "version" : "number"
+        }
+}
+
+{
+        "BusinessDay" : {
+                "_id" : "object",
+                "businessDayDate" : "object",
+                "beginDateTimestamp" : "object",
+                "version" : "object",
+                "id" : "object",
+                "endDateTimestamp" : "object"
+        }
+}
+{
+        "BusinessUnitGroupItem" : {
+                "_id" : "object",
+                "partyRole" : "object",
+                "itemSellingPrices" : "object",
+                "item" : "object",
+                "effectiveDateTime" : "object",
+                "expirationDateTime" : "object",
+                "currency" : "object",
+                "sellingPriceListNumber" : "number",
+                "isDefault" : "boolean",
+                "sellingPriceListName" : "string",
+                "channels" : "object",
+                "stores" : "object",
+                "version" : "number",
+                "createdAt" : "object",
+                "id" : "object",
+                "itemSellingPricesStatus" : "number",
+                "lastUpdate" : "object",
+                "updatedAt" : "object",
+                "barcode" : "object"
+        }
+}
+{
+        "BusinessUnitGroupItemHeader" : {
+                "_id" : "object",
+                "partyRole" : "object",
+                "itemSellingPricesStatus" : "number",
+                "isModified" : "boolean",
+                "effectiveDateTime" : "object",
+                "expirationDateTime" : "object",
+                "currency" : "object",
+                "sellingPriceListNumber" : "number",
+                "sellingPriceListName" : "string",
+                "status" : "number",
+                "stores" : "object",
+                "channels" : "object",
+                "version" : "number",
+                "createdAt" : "object",
+                "id" : "object",
+                "lastUpdate" : "object",
+                "userModified" : "object"
+        }
+}
+{
+        "BusinessUnitGroupItemItemStoresStatus" : {
+                "_id" : "object",
+                "sellingPriceListModified" : "boolean",
+                "itemSellingPricesStatus" : "number",
+                "storeName" : "string",
+                "storeCode" : "string",
+                "sellingPriceListNumber" : "number",
+                "version" : "number",
+                "createdAt" : "object",
+                "id" : "object",
+                "lastUpdate" : "object",
+                "userModified" : "mixed",
+                "itemsModified" : "object",
+                "sellingPriceListName" : "object"
+        }
+}
+
+{
+        "City" : {
+                "_id" : "object",
+                "code" : "string",
+                "name" : "string",
+                "state" : "object",
+                "version" : "number",
+                "updatedAt" : "object"
+        }
+}
+{
+        "CityLocation" : {
+                "_id" : "object",
+                "code" : "string",
+                "name" : "string",
+                "city" : "object",
+                "version" : "number"
+        }
+}
+{
+        "Client" : {
+                "_id" : "object",
+                "authorities" : "object",
+                "scopes" : "object",
+                "clientId" : "string",
+                "clientSecret" : "string",
+                "authorizedGrantTypes" : "object",
+                "redirectUris" : "object",
+                "version" : "number",
+                "accessTokenValiditySeconds" : "object",
+                "additionalInformation" : "object",
+                "autoApproveScopes" : "object",
+                "id" : "object",
+                "refreshTokenValiditySeconds" : "object",
+                "resourceIds" : "object"
+        }
+}
+
+{
+        "Color" : {
+                "_id" : "object",
+                "code" : "string",
+                "name" : "string",
+                "description" : "string",
+                "version" : "number"
+        }
+}
+
+{
+        "CostListHeader" : {
+                "_id" : "object",
+                "costListNumber" : "number",
+                "supplier" : "object",
+                "effectiveDateTime" : "object",
+                "expirationDateTime" : "object",
+                "currency" : "object",
+                "user" : "object",
+                "status" : "number",
+                "version" : "number",
+                "id" : "object",
+                "stores" : "object"
+        }
+}
+{
+        "CostListItem" : {
+                "_id" : "object",
+                "apiProcessed" : "boolean",
+                "item" : "object",
+                "unitCost" : "object",
+                "barcode" : "object",
+                "costListId" : "object",
+                "apiStatus" : "string",
+                "version" : "number",
+                "discount1" : "object",
+                "discount2" : "object",
+                "discount3" : "object",
+                "discount4" : "object",
+                "freightCost" : "object",
+                "id" : "object",
+                "internalTaxAmount" : "object",
+                "partialCost" : "object",
+                "supplierItemCode" : "object",
+                "updatedAt" : "object"
+        }
+}
+{
+        "Country" : {
+                "_id" : "object",
+                "code" : "string",
+                "name" : "string",
+                "ref" : "string",
+                "updatedAt" : "object",
+                "version" : "number"
+        }
+}
+
+{
+        "FuelHose" : {
+                "_id" : "object",
+                "pumpId" : "string",
+                "product" : "object",
+                "code" : "number",
+                "ppu" : "object",
+                "tankIds" : "string",
+                "hoseVolumeTotalizer" : "object",
+                "highProductTankSuctionId" : "string",
+                "hoseMoneyTotalizer" : "object",
+                "hoseGrade" : "number",
+                "version" : "object",
+                "tanks" : "object",
+                "lowProductTankSuctionId" : "string"
+        }
+}
+{
+        "FuelPreset" : {
+                "_id" : "object",
+                "pumpId" : "string",
+                "amount" : "object",
+                "transTerminal" : "object",
+                "transNum" : "string",
+                "shift" : "number",
+                "controllerShiftId" : "string",
+                "hose" : "string",
+                "operatorShortUserName" : "string",
+                "operatorUserId" : "string",
+                "productDesc" : "string",
+                "volume" : "object",
+                "originalPpu" : "object",
+                "prepaidInformation" : "string",
+                "productCode" : "string",
+                "operatorUserName" : "string",
+                "deferredSale" : "boolean",
+                "operatorUserNameDescription" : "string",
+                "presetType" : "string",
+                "state" : "number",
+                "issueDate" : "object",
+                "day" : "number",
+                "presetId" : "string",
+                "fuelSale" : "object",
+                "saleId" : "string",
+                "billNum" : "string",
+                "transmitter" : "string",
+                "prepaid" : "string",
+                "ppu" : "object"
+        }
+}
+{
+        "FuelProduct" : {
+                "_id" : "object",
+                "lowProductBlendPercentage" : "object",
+                "code" : "number",
+                "ppu" : "object",
+                "highProductBlendPercentage" : "object",
+                "name" : "string",
+                "highProductBlendName" : "string",
+                "version" : "object",
+                "productPrices" : "object",
+                "lowProductBlendName" : "string"
+        }
+}
+{
+        "FuelProductPrice" : {
+                "_id" : "object",
+                "productLevel" : "number",
+                "productId" : "string",
+                "price" : "object",
+                "fuelProduct" : "object",
+                "version" : "object"
+        }
+}
+{
+        "FuelPump" : {
+                "_id" : "object",
+                "firstHose" : "number",
+                "pumpId" : "string",
+                "pumpPriceLevel" : "number",
+                "maxSaleVolume" : "object",
+                "maxSaleAmount" : "object",
+                "pumpType" : "string",
+                "pumpTypeDescription" : "string",
+                "version" : "object",
+                "lastStatusChangeDate" : "object",
+                "status" : "string",
+                "id" : "object",
+                "terminals" : "object",
+                "updatedAt" : "object",
+                "hoses" : "object"
+        }
+}
+{
+        "FuelSale" : {
+                "_id" : "object",
+                "pumpId" : "string",
+                "amount" : "object",
+                "product" : "number",
+                "saleId" : "string",
+                "finalVolumeTotalizer" : "object",
+                "presetAmount" : "object",
+                "saleType" : "string",
+                "shift" : "number",
+                "controllerShiftId" : "string",
+                "hose" : "string",
+                "initialVolumeTotalizer" : "object",
+                "version" : "object",
+                "transactionType" : "string",
+                "volume" : "object",
+                "ppu" : "object",
+                "presetVolume" : "object",
+                "state" : "string",
+                "day" : "number",
+                "timestamp" : "object",
+                "updateTimestamp" : "object",
+                "productName" : "string",
+                "previousState" : "string",
+                "unlockState" : "string",
+                "paymentInformation" : "string",
+                "presetId" : "string"
+        }
+}
+
+{
+        "FuelTank" : {
+                "_id" : "object",
+                "baseFuelProductCode" : "string",
+                "totalTankCapacity" : "object",
+                "fuelTankId" : "string",
+                "baseFuelProductDesc" : "string",
+                "version" : "object"
+        }
+}
+
+{
+        "Item" : {
+                "_id" : "object",
+                "notForSale" : "boolean",
+                "discountsNotAllowed" : "boolean",
+                "priceRequired" : "boolean",
+                "magnitudeRequired" : "boolean",
+                "quantityRequired" : "boolean",
+                "quantityAllowed" : "boolean",
+                "restrictedSalesHour" : "boolean",
+                "recordInExceptionLog" : "boolean",
+                "authorizationRequired" : "boolean",
+                "foodStampTender" : "boolean",
+                "serialNumberRequired" : "boolean",
+                "refundNotAllowed" : "boolean",
+                "genericItem" : "boolean",
+                "kitComponent" : "boolean",
+                "stockReservationRequired" : "boolean",
+                "importDocReq" : "boolean",
+                "flagIndexed" : "boolean",
+                "internalCode" : "string",
+                "description" : "string",
+                "price" : "object",
+                "unitCost" : "object",
+                "ivaType" : "object",
+                "itemType" : "object",
+                "unitOfMeasure" : "object",
+                "lastSalesPriceUpdate" : "object",
+                "disabled" : "boolean",
+                "taxCategory" : "object",
+                "product" : "object",
+                "version" : "number",
+                "createdAt" : "object",
+                "updatedAt" : "object",
+                "sellerRequired" : "boolean",
+                "location" : "object",
+                "creditAllowed" : "boolean",
+                "blockedForIcd" : "boolean",
+                "relevance" : "number",
+                "code" : "string",
+                "id" : "object",
+                "importDocRequired" : "boolean",
+                "affiliateBenefit" : "boolean",
+                "alcoholicBeverage" : "boolean",
+                "bigDescription" : "string",
+                "calculateCommission" : "boolean",
+                "commissionFlag" : "boolean",
+                "exemptFlag" : "boolean",
+                "fullDescription" : "string",
+                "maxStock" : "object",
+                "onConsignment" : "boolean",
+                "requiresPrescriptionFlag" : "boolean",
+                "requiresUpdateCost" : "boolean",
+                "securityStock" : "object",
+                "published" : "boolean",
+                "linkedItems" : "object",
+                "itemInternalTaxes" : "object",
+                "aggregateItem" : "object",
+                "stockItem" : "object",
+                "specialPrice" : "object"
+        }
+}
+{
+        "ItemAssociationType" : {
+                "_id" : "object",
+                "ref" : "number",
+                "code" : "string",
+                "name" : "string",
+                "version" : "number"
+        }
+}
+{
+        "ItemAttribute" : {
+                "_id" : "object",
+                "showInfo" : "boolean",
+                "showRgb" : "boolean",
+                "disabled" : "boolean",
+                "editOptionsFlag" : "boolean",
+                "code" : "string",
+                "options" : "object",
+                "dataType" : "string",
+                "name" : "string",
+                "version" : "number",
+                "id" : "object"
+        }
+}
+{
+        "ItemFuelSummary" : {
+                "_id" : "object",
+                "calendarPeriod" : "object",
+                "item" : "object",
+                "amount" : "number",
+                "beginDateTimeAsInt" : "number",
+                "complementReturnAmount" : "number",
+                "complementReturnUnitCount" : "number",
+                "complementSalesAmount" : "number",
+                "complementSalesUnitCount" : "number",
+                "createdAt" : "object",
+                "dispatchDifference" : "number",
+                "itemReturnAmount" : "number",
+                "itemReturnUnitCount" : "number",
+                "itemSalesAmount" : "number",
+                "itemSalesUnitCount" : "number",
+                "level" : "number",
+                "ppu" : "number",
+                "store" : "object",
+                "testReturnAmount" : "number",
+                "testReturnUnitCount" : "number",
+                "thirdPartyAmount" : "number",
+                "thirdPartyManualAmount" : "number",
+                "thirdPartyManualVolume" : "number",
+                "thirdPartyVolume" : "number",
+                "updatedAt" : "object",
+                "version" : "number",
+                "volume" : "number",
+                "volumeDifference" : "number"
+        }
+}
+{
+        "ItemHierarchy" : {
+                "_id" : "object",
+                "item" : "object",
+                "internalCode" : "string",
+                "merchandiseHierarchyGroups" : "object",
+                "names" : "object"
+        }
+}
+{
+        "ItemInternalTax" : {
+                "_id" : "object",
+                "disabled" : "boolean",
+                "internalTaxType" : "object",
+                "item" : "object",
+                "effectiveDateTime" : "object",
+                "expirationDateTime" : "object",
+                "amount" : "object",
+                "version" : "number",
+                "createdAt" : "object",
+                "description" : "string",
+                "id" : "object",
+                "mountInternalTax" : "object",
+                "updatedAt" : "object"
+        }
+}
+{
+        "ItemIvaType" : {
+                "_id" : "object",
+                "code" : "string",
+                "createdAt" : "object",
+                "description" : "string",
+                "disabled" : "boolean",
+                "percentage" : "object",
+                "updatedAt" : "object",
+                "version" : "number",
+                "id" : "object",
+                "name" : "string"
+        }
+}
+{
+        "ItemPicture" : {
+                "_id" : "object",
+                "active" : "boolean",
+                "base" : "boolean",
+                "template" : "boolean",
+                "filename" : "string",
+                "created" : "object",
+                "directory" : "string",
+                "item" : "object",
+                "thumbnail" : "boolean",
+                "priority" : "number",
+                "version" : "number",
+                "id" : "object",
+                "fileName" : "string",
+                "isActive" : "boolean",
+                "isBase" : "boolean",
+                "isTemplate" : "boolean",
+                "isThumbnail" : "boolean",
+                "channels" : "object",
+                "addressUrl" : "string"
+        }
+}
+{
+        "ItemPriceCurrent" : {
+                "_id" : "object",
+                "channels" : "object",
+                "price" : "number",
+                "unitCost" : "number",
+                "sellingPriceListNumber" : "number",
+                "marginAsNumber" : "number",
+                "marginAsPercent" : "number",
+                "alert" : "boolean",
+                "item" : "object",
+                "businessUnitGroupItem" : "object",
+                "internalCode" : "string",
+                "origin" : "string",
+                "store" : "object",
+                "name" : "string",
+                "validFrom" : "object",
+                "validTo" : "object",
+                "dateCode" : "string",
+                "version" : "number",
+                "createdAt" : "object",
+                "updatedAt" : "object"
+        }
+}
+{
+        "ItemPriceTemp" : {
+                "_id" : "object",
+                "item" : "object",
+                "store" : "object",
+                "businessUnitGroupItem" : "object",
+                "sellingPriceListNumber" : "number",
+                "__v" : "number"
+        }
+}
+{
+        "ItemPriceTemp2" : {
+                "_id" : "object",
+                "item" : "object",
+                "businessUnitGroupItem" : "object",
+                "sellingPriceListNumber" : "number",
+                "store" : "object",
+                "__v" : "number"
+        }
+}
+{
+        "ItemSalesSummary" : {
+                "_id" : "object",
+                "calendarPeriod" : "object",
+                "item" : "object",
+                "store" : "object",
+                "beginDateTimeAsInt" : "number",
+                "businessDayAsInt" : "number",
+                "cost" : "number",
+                "createdAt" : "object",
+                "description" : "string",
+                "internalCode" : "string",
+                "internalTax" : "number",
+                "internalTaxesDetail" : "object",
+                "itemDiscountAmount" : "number",
+                "itemDiscountReturnAmount" : "number",
+                "itemReturnAmount" : "number",
+                "itemReturnUnitCount" : "number",
+                "itemReturnUnits" : "number",
+                "itemSalesAmount" : "number",
+                "itemSalesDiscount" : "number",
+                "itemSalesUnitCount" : "number",
+                "itemSalesUnits" : "number",
+                "itemType" : "string",
+                "itemVoidAmount" : "number",
+                "itemVoidReturnAmount" : "number",
+                "itemVoidReturnUnitCount" : "number",
+                "itemVoidReturnUnits" : "number",
+                "itemVoidUnitCount" : "number",
+                "itemVoidUnits" : "number",
+                "merchandiseHierarchyFirstLevelCode" : "string",
+                "merchandiseHierarchyFirstLevelName" : "string",
+                "merchandiseHierarchyGroupCode" : "string",
+                "merchandiseHierarchyGroupName" : "string",
+                "merchandiseHierarchySecondLevelCode" : "string",
+                "merchandiseHierarchySecondLevelName" : "string",
+                "periodNumber" : "number",
+                "sbPeriodNumber" : "number",
+                "updatedAt" : "object",
+                "vat" : "number",
+                "vatPercentage" : "number",
+                "version" : "number",
+                "weight" : "number"
+        }
+}
+{
+        "ItemSalesSummaryWeekday" : {
+                "_id" : "object",
+                "calendarPeriod" : "object",
+                "item" : "object",
+                "store" : "object",
+                "weekday" : "number",
+                "weekdayName" : "string",
+                "beginDateTimeAsInt" : "number",
+                "businessDayAsInt" : "number",
+                "businessDayDate" : "object",
+                "cost" : "number",
+                "createdAt" : "object",
+                "description" : "string",
+                "internalCode" : "string",
+                "internalTax" : "number",
+                "internalTaxesDetail" : "object",
+                "itemDiscountAmount" : "number",
+                "itemDiscountReturnAmount" : "number",
+                "itemReturnAmount" : "number",
+                "itemReturnUnitCount" : "number",
+                "itemReturnUnits" : "number",
+                "itemSalesAmount" : "number",
+                "itemSalesDiscount" : "number",
+                "itemSalesUnitCount" : "number",
+                "itemSalesUnits" : "number",
+                "itemType" : "string",
+                "itemVoidAmount" : "number",
+                "itemVoidReturnAmount" : "number",
+                "itemVoidReturnUnitCount" : "number",
+                "itemVoidReturnUnits" : "number",
+                "itemVoidUnitCount" : "number",
+                "itemVoidUnits" : "number",
+                "merchandiseHierarchyGroupCode" : "string",
+                "merchandiseHierarchyGroupName" : "string",
+                "periodNumber" : "number",
+                "sbPeriodNumber" : "number",
+                "updatedAt" : "object",
+                "vat" : "number",
+                "vatPercentage" : "number",
+                "version" : "number"
+        }
+}
+{
+        "ItemSellingPrices" : {
+                "_id" : "object",
+                "currentSaleUnitRetailPriceExpirationDate" : "object",
+                "alternativePrice" : "object",
+                "permanentRetailPriceEffectiveDate" : "object",
+                "text1" : "string",
+                "currentSaleUnitRetailPriceTypeCode" : "string",
+                "discountable" : "boolean",
+                "currentPackagePrice" : "object",
+                "manufacturerSaleUnitRecommendedRetailPriceAmount" : "object",
+                "permanentSaleUnitRetailPriceAmount" : "object",
+                "currentPackagePriceQuantity" : "object",
+                "currentSaleUnitRetailPriceAmount" : "object",
+                "isModified" : "boolean",
+                "currentPackagePriceEndEffectiveDate" : "object",
+                "currentSaleUnitRetailPriceEffectiveDate" : "object",
+                "quantityPricingFlag" : "boolean",
+                "text2" : "string",
+                "currentPackagePriceInitEffectiveDate" : "object",
+                "manualDiscount" : "boolean",
+                "version" : "number",
+                "id" : "object"
+        }
+}
+{
+        "ItemStockSummary" : {
+                "_id" : "object",
+                "beginningUnitCount" : "number",
+                "salesCount" : "number",
+                "returnCount" : "number",
+                "receptionCount" : "number",
+                "supplierReturnCount" : "number",
+                "transferInCount" : "number",
+                "transferOutCount" : "number",
+                "loosesCount" : "number",
+                "adjustmentCount" : "number",
+                "endUnitCount" : "number",
+                "saleCostAmount" : "number",
+                "returnCostAmount" : "number",
+                "receptionCostAmount" : "number",
+                "supplierReturnCostAmount" : "number",
+                "adjuntmentCostAmount" : "number",
+                "loosesCostAmount" : "number",
+                "transferInCostAmount" : "number",
+                "transferOutCostAmount" : "number",
+                "beginningCostAmount" : "number",
+                "costLoosesCostAmount" : "number",
+                "costAdjuntmentCostAmount" : "number",
+                "unitVariationCostAmount" : "number",
+                "store" : "object",
+                "item" : "object",
+                "sbPeriodNumber" : "number",
+                "unitCost" : "number",
+                "totalCostAmount" : "number",
+                "itemTypeCode" : "string",
+                "itemHierarchyGroup" : "object",
+                "createdAt" : "object",
+                "updatedAt" : "object",
+                "version" : "number",
+                "endCostAmount" : "number"
+        }
+}
+{
+        "ItemStore" : {
+                "_id" : "object",
+                "processed" : "boolean",
+                "internalCode" : "string",
+                "price" : "object",
+                "notForSale" : "number",
+                "disabled" : "number",
+                "blockedForIcd" : "number",
+                "store" : "object",
+                "refundNotAllowed" : "number",
+                "item" : "object",
+                "storeCode" : "string",
+                "unitCost" : "object",
+                "maxStock" : "object",
+                "onConsignment" : "number",
+                "securityStock" : "object",
+                "description" : "string",
+                "version" : "number",
+                "id" : "object",
+                "createdAt" : "object",
+                "updatedAt" : "object"
+        }
+}
+{
+        "ItemSupplierItem" : {
+                "_id" : "object",
+                "countMinOrder" : "object",
+                "code" : "string",
+                "countMaxOrder" : "object",
+                "disabled" : "boolean",
+                "supplier" : "object",
+                "defaultBarcode" : "boolean",
+                "item" : "object",
+                "lastReceiptSaleUnitBaseCost" : "object",
+                "barcode" : "string",
+                "supplierItemCode" : "string",
+                "version" : "number",
+                "createdAt" : "object",
+                "id" : "object",
+                "updatedAt" : "object",
+                "effectiveDateTime" : "object",
+                "expirationDateTime" : "object"
+        }
+}
+{
+        "ItemTaxCategory" : {
+                "_id" : "object",
+                "code" : "string",
+                "name" : "string",
+                "version" : "number"
+        }
+}
+{
+        "ItemType" : {
+                "_id" : "object",
+                "ref" : "number",
+                "code" : "string",
+                "name" : "string",
+                "disabled" : "boolean",
+                "promoCatalog" : "boolean",
+                "version" : "number"
+        }
+}
+{
+        "MerchandiseHierarchyGroup" : {
+                "_id" : "object",
+                "code" : "string",
+                "disabled" : "boolean",
+                "isWeb" : "boolean",
+                "description" : "string",
+                "level" : "object",
+                "version" : "number",
+                "createdAt" : "object",
+                "id" : "object",
+                "name" : "string",
+                "updatedAt" : "object",
+                "parent" : "object"
+        }
+}
+{
+        "MerchandiseHierarchyLevel" : {
+                "_id" : "object",
+                "code" : "string",
+                "createdAt" : "object",
+                "description" : "string",
+                "disabled" : "boolean",
+                "level" : "number",
+                "updatedAt" : "object",
+                "version" : "number",
+                "disable" : "boolean",
+                "hierarchyLevel" : "number",
+                "id" : "object",
+                "name" : "string"
+        }
+}
+
+{
+        "Party" : {
+                "_id" : "object",
+                "_class" : "string",
+                "identificationType" : "object",
+                "creditTransactionLimitAmount" : "object",
+                "origin" : "mixed",
+                "isPrePaidParty" : "boolean",
+                "billExpirationDays" : "number",
+                "apiProcessed" : "boolean",
+                "creditBilledNotPaidAmount" : "object",
+                "typeCode" : "string",
+                "creditBalanceAmount" : "object",
+                "creditAllowed" : "boolean",
+                "name" : "string",
+                "creditShipNotBilledAmount" : "object",
+                "fleetSalesAllowed" : "boolean",
+                "identifier" : "string",
+                "exemptFlag" : "boolean",
+                "code" : "string",
+                "creditDisabled" : "boolean",
+                "disabled" : "boolean",
+                "prepaidDisabled" : "boolean",
+                "prepaidBalanceAmount" : "object",
+                "creditLimitAmount" : "object",
+                "creditDayTotalAmount" : "object",
+                "isCreditParty" : "boolean",
+                "creditDayLimitAmount" : "object",
+                "partyActivity" : "object",
+                "billPeriod" : "string",
+                "partyRoleAssignments" : "object",
+                "version" : "number",
+                "createdAt" : "object",
+                "id" : "object",
+                "updatedAt" : "object",
+                "email" : "string"
+        }
+}
+{
+        "PartyActivity" : {
+                "_id" : "object",
+                "code" : "string",
+                "description" : "string",
+                "disabled" : "boolean",
+                "version" : "number",
+                "id" : "object",
+                "updatedAt" : "object"
+        }
+}
+{
+        "PartyContactMethod" : {
+                "_id" : "object",
+                "partyCode" : "string",
+                "code" : "string",
+                "disabled" : "boolean",
+                "telephone" : "object",
+                "address" : "object",
+                "party" : "object",
+                "principalForBilling" : "boolean",
+                "name" : "string",
+                "principalForDelivery" : "boolean",
+                "version" : "number",
+                "id" : "object",
+                "effectiveDate" : "object",
+                "emailAddress" : "string",
+                "expirationDate" : "object"
+        }
+}
+{
+        "PartyIdentificationType" : {
+                "_id" : "object",
+                "code" : "number",
+                "description" : "string",
+                "version" : "number"
+        }
+}
+{
+        "PartyRole" : {
+                "_id" : "object",
+                "code" : "string",
+                "name" : "string",
+                "description" : "string",
+                "version" : "number",
+                "disabled" : "boolean",
+                "id" : "object",
+                "updatedAt" : "object"
+        }
+}
+{
+        "PartySaleCondition" : {
+                "_id" : "object",
+                "code" : "string",
+                "saleConditionDescription" : "string",
+                "isDefault" : "boolean",
+                "disabled" : "boolean",
+                "updatedAt" : "object"
+        }
+}
+
+{
+        "Region" : {
+                "_id" : "object",
+                "ref" : "number",
+                "code" : "string",
+                "name" : "string",
+                "description" : "string",
+                "company" : "object",
+                "version" : "number"
+        }
+}
+
+{
+        "RelatedItemAssociation" : {
+                "_id" : "object",
+                "relationType" : "object",
+                "disabled" : "boolean",
+                "itemRelated" : "object",
+                "item" : "object",
+                "name" : "string",
+                "version" : "number",
+                "id" : "object",
+                "nameRelated" : "string"
+        }
+}
+
+{
+        "State" : {
+                "_id" : "object",
+                "ref" : "number",
+                "code" : "string",
+                "name" : "string",
+                "country" : "object",
+                "version" : "number",
+                "updatedAt" : "object",
+                "id" : "object"
+        }
+}
+
+{
+        "Store" : {
+                "_id" : "object",
+                "erpFlag" : "boolean",
+                "disabled" : "boolean",
+                "isDirty" : "boolean",
+                "checkingAccount" : "boolean",
+                "constraintSetItems" : "boolean",
+                "saleOnCreditAllowed" : "boolean",
+                "code" : "string",
+                "name" : "string",
+                "stockCode" : "number",
+                "taxJurisdictionTaxTypeCategory" : "object",
+                "agenteRetencion" : "boolean",
+                "company" : "object",
+                "regions" : "object",
+                "createdAt" : "object",
+                "updatedAt" : "object",
+                "version" : "mixed",
+                "classification" : "object",
+                "id" : "object",
+                "operationModel" : "object",
+                "address" : "string",
+                "city" : "object",
+                "cityLocation" : "object",
+                "storeTaxCategory" : "object",
+                "externalId" : "string",
+                "email" : "string",
+                "mail" : "string"
+        }
+}
+{
+        "StoreHistory" : {
+                "_id" : "object",
+                "grossPositiveAmount" : "object",
+                "cancelledAmount" : "object",
+                "promoDiscountAmount" : "object",
+                "manualDiscountAmount" : "object",
+                "returnAmount" : "object",
+                "offlineAmount" : "number",
+                "netSalesAmount" : "object",
+                "paymentsCollectedAmount" : "object",
+                "financialFeeAmount" : "object",
+                "taxAmount" : "object",
+                "collectedCount" : "number",
+                "netImportAmount" : "number",
+                "totalToAccountAmount" : "number",
+                "itemVoidAmount" : "object",
+                "transactionCount" : "number",
+                "transactionVoidCount" : "number",
+                "noSaleTransactionCount" : "number",
+                "voidCollectedCount" : "number",
+                "collectedAmount" : "object",
+                "voidCollectedAmount" : "object",
+                "trainingCount" : "object",
+                "customersCount" : "number",
+                "itemCount" : "object",
+                "itemVoidCount" : "object",
+                "returnCount" : "number",
+                "otherTaxesAmount" : "number",
+                "periodConciliationFlag" : "boolean",
+                "roundedAmountPositive" : "number",
+                "roundedAmountNegative" : "number",
+                "roundedAmount" : "number",
+                "containerDepositAmount" : "number",
+                "containerRedeemAmount" : "number",
+                "othersIncomeAmount" : "object",
+                "calendarPeriod" : "object",
+                "store" : "object",
+                "periodNumber" : "number",
+                "sbPeriodNumber" : "number",
+                "storeName" : "string",
+                "storeCode" : "string",
+                "beginDateTimeAsInt" : "number",
+                "businessDayAsInt" : "number",
+                "createdAt" : "object",
+                "updatedAt" : "object",
+                "version" : "object",
+                "periodConciliationOperator" : "object",
+                "cancelledTotalAmount" : "number",
+                "collectedTotalAmount" : "number",
+                "collectedTotalCount" : "number",
+                "grossPositiveTotalAmount" : "number",
+                "id" : "object",
+                "lineItemVoidTotalAmount" : "number",
+                "markdownTotalAmount" : "number",
+                "miscellaneousDiscountTotalAmount" : "number",
+                "miscellaneousFeeTotalAmount" : "number",
+                "netSalesTotalAmount" : "number",
+                "paymentsCollectedTotalAmount" : "number",
+                "periodConciliationDate" : "object",
+                "returnTotalAmount" : "number",
+                "taxTotalAmount" : "number",
+                "totalLineItemVoidCount" : "number",
+                "totalReturnCount" : "number",
+                "totalSaleLineItemCount" : "number",
+                "totalTransactionCount" : "number",
+                "totalTransactionVoidCount" : "number",
+                "trainingTotalCount" : "number",
+                "voidCollectedTotalAmount" : "number",
+                "voidCollectedTotalCount" : "number"
+        }
+}
+
+{
+        "SubordinatedPeriod" : {
+                "_id" : "object",
+                "periodNumber" : "number",
+                "child" : "object",
+                "parent" : "object",
+                "version" : "number",
+                "id" : "object"
+        }
+}
+{
+        "Supplier" : {
+                "_id" : "object",
+                "asn" : "boolean",
+                "code" : "string",
+                "disabled" : "boolean",
+                "caiRequired" : "boolean",
+                "automaticMail" : "boolean",
+                "name" : "string",
+                "version" : "number",
+                "id" : "object",
+                "frequency" : "object",
+                "mail" : "string",
+                "address" : "string",
+                "cuit" : "string",
+                "phone" : "string"
+        }
+}
+{
+        "SupplierOrderAverageDailySale" : {
+                "_id" : "object",
+                "item" : "object",
+                "weekday" : "number",
+                "weekdayName" : "string",
+                "store" : "object",
+                "averageDailySale" : "number",
+                "priorAverageDailySale" : "number",
+                "createdAt" : "object",
+                "updatedAt" : "object",
+                "version" : "number"
+        }
+}
+{
+        "SupplierOrderCalendar" : {
+                "_id" : "object",
+                "code" : "string",
+                "automaticConfOrder" : "boolean",
+                "disabled" : "boolean",
+                "supplier" : "object",
+                "automaticOrder" : "boolean",
+                "orderWeekday" : "string",
+                "name" : "string",
+                "orderTimeLimit" : "string",
+                "deliveryWeekday" : "string",
+                "stores" : "object",
+                "version" : "number",
+                "id" : "object"
+        }
+}
+{
+        "SystemProperty" : {
+                "_id" : "object",
+                "ref" : "number",
+                "key" : "string",
+                "name" : "string",
+                "description" : "string",
+                "propertyType" : "object",
+                "propertyCategory" : "object",
+                "propertyModule" : "object",
+                "version" : "mixed",
+                "id" : "object",
+                "propertyKey" : "string"
+        }
+}
+
+{ "TaxType" : { } }
+{
+        "Tender" : {
+                "_id" : "object",
+                "code" : "string",
+                "createdAt" : "object",
+                "descriptor" : "string",
+                "disabled" : "boolean",
+                "tenderType" : "object",
+                "updatedAt" : "object",
+                "version" : "number",
+                "description" : "string",
+                "id" : "object",
+                "ref" : "number"
+        }
+}
+
+{
+        "Terminal" : {
+                "_id" : "object",
+                "disabled" : "boolean",
+                "apiTerminalRegistered" : "boolean",
+                "code" : "string",
+                "name" : "string",
+                "store" : "object",
+                "createdAt" : "object",
+                "updatedAt" : "object",
+                "version" : "mixed",
+                "category" : "object",
+                "id" : "object",
+                "group" : "object",
+                "broadcastCenter" : "object",
+                "handheldTerminal" : "object"
+        }
+}
+{
+        "TerminalCategory" : {
+                "_id" : "object",
+                "code" : "string",
+                "name" : "string",
+                "disabled" : "boolean",
+                "version" : "number",
+                "id" : "object"
+        }
+}
+
+{
+        "Transaction" : {
+                "_id" : "object",
+                "cancelFlag" : "boolean",
+                "trainingModeFlag" : "boolean",
+                "suspendedFlag" : "boolean",
+                "voidedFlag" : "boolean",
+                "offlineFlag" : "boolean",
+                "contigencyFlag" : "boolean",
+                "storeCode" : "string",
+                "terminalCode" : "string",
+                "trxNumber" : "number",
+                "businessDayDate" : "object",
+                "beginDateTime" : "object",
+                "endDateTime" : "object",
+                "periodNumber" : "number",
+                "sbPeriodNumber" : "number",
+                "periodCode" : "number",
+                "subPeriodCode" : "number",
+                "originalTransaction" : "string",
+                "controlTransaction" : "object",
+                "trxOrigin" : "string",
+                "trxStatus" : "string",
+                "trxType" : "string",
+                "trxTypeCode" : "number",
+                "storeExternalId" : "string",
+                "storeCostCenter" : "string",
+                "subperiods" : "object",
+                "errorDetail" : "object",
+                "originalPeriodCode" : "object",
+                "originalPeriodNumber" : "object",
+                "originalSubPeriodCode" : "object",
+                "originalSubPeriodNumber" : "object",
+                "trxExecutedQty" : "number",
+                "updatedAt" : "object",
+                "properties" : "object",
+                "transactionID" : "object",
+                "location" : "string",
+                "erpStatus" : "number",
+                "erpRetriesCounter" : "number",
+                "nccProcessedFlag" : "boolean",
+                "total" : "number",
+                "type" : "object",
+                "nextSequenceNumber" : "number",
+                "paymentOnAccountCapitalTotal" : "number",
+                "paymentOnAccountInterestTotal" : "number",
+                "totalWithOutScale" : "number",
+                "status" : "number",
+                "userName" : "string",
+                "shortUserName" : "string",
+                "userNameDescription" : "string",
+                "userId" : "string",
+                "currencyCode" : "string",
+                "docNumber" : "string",
+                "recovered" : "boolean",
+                "tillCode" : "string",
+                "secondTillCode" : "string",
+                "tillType" : "string",
+                "secondTillType" : "string",
+                "tillName" : "string",
+                "fiscalPosNumber" : "string",
+                "fiscalPosNewGeneration" : "boolean",
+                "ringElapsedTime" : "number",
+                "tenderElapsedTime" : "number",
+                "lockTime" : "number",
+                "purchaseAmount" : "number",
+                "giftCardTransaction" : "object",
+                "exemptStore" : "boolean",
+                "exemptCustomer" : "boolean",
+                "companyCode" : "string",
+                "tenderAmountCorrected" : "number",
+                "totalDebitPayment" : "number",
+                "totalPaymentsAmount" : "number",
+                "paymentsNotVoidedEMV" : "number",
+                "tenderAmountToCorrect" : "number",
+                "minimumFractionDigits" : "number",
+                "return" : "boolean",
+                "tenderControl" : "boolean",
+                "sale" : "boolean"
+        }
+}
+{
+        "TransactionDonationRetail" : {
+                "_id" : "object",
+                "transactionObjectId" : "object",
+                "storeCode" : "string",
+                "storeName" : "string",
+                "store" : "object",
+                "trxDate" : "object",
+                "periodNumber" : "number",
+                "sbPeriodNumber" : "number",
+                "periodCode" : "number",
+                "sbPeriodCode" : "number",
+                "calendarPeriod" : "object",
+                "businessDayAsInt" : "number",
+                "operatorCode" : "string",
+                "operatorName" : "string",
+                "tenderCode" : "string",
+                "tenderName" : "string",
+                "tenderType" : "object",
+                "trxNumber" : "number",
+                "amount" : "number",
+                "campaignCode" : "string",
+                "campaignName" : "string",
+                "version" : "number",
+                "createdAt" : "object",
+                "updatedAt" : "object"
+        }
+}
+{
+        "TransactionRetail" : {
+                "_id" : "object",
+                "itemCount" : "number",
+                "itemCountWithBarcodes" : "number",
+                "grossAmount" : "number",
+                "taxAmount" : "number",
+                "promoDiscountAmount" : "number",
+                "manualDiscountAmount" : "number",
+                "cancelFlag" : "boolean",
+                "contingencyFlag" : "boolean",
+                "netSalesAmount" : "number",
+                "returnAmount" : "number",
+                "transactionDiscountAmount" : "number",
+                "voidedFlag" : "boolean",
+                "nccProcessedFlag" : "boolean",
+                "iva0Amount" : "number",
+                "iva21Amount" : "number",
+                "iva105Amount" : "number",
+                "iva27Amount" : "number",
+                "iva10Amount" : "number",
+                "iva22Amount" : "number",
+                "iva18Amount" : "number",
+                "customerLoyalty" : "object",
+                "promoCouponLoyalty" : "object",
+                "manualDiscounts" : "object",
+                "foreignCurrencyInvoice" : "boolean",
+                "foreignCurrencySellingQuote" : "number",
+                "events" : "object",
+                "deliveryDocumentsList" : "object",
+                "marginAsNumber" : "number",
+                "marginAsPercent" : "number",
+                "isFuel" : "boolean",
+                "fuelCreditProgramTransaction" : "boolean",
+                "exemptTransaction" : "boolean",
+                "invoiceRequired" : "boolean",
+                "notConciliatedPrePaySale" : "boolean",
+                "autoInvoiced" : "boolean",
+                "lake" : "boolean",
+                "prize" : "boolean",
+                "redeemCoupons" : "object",
+                "orderPartialBillVersion" : "number",
+                "transactionObjectId" : "object",
+                "trxType" : "string",
+                "trxNumber" : "number",
+                "store" : "object",
+                "storeName" : "string",
+                "storeCode" : "string",
+                "terminalCode" : "string",
+                "periodNumber" : "number",
+                "sbPeriodNumber" : "number",
+                "beginDateTime" : "object",
+                "endDateTime" : "object",
+                "beginDateTimeAsInt" : "number",
+                "businessDayAsInt" : "number",
+                "beginDateTimeHour" : "number",
+                "calendarPeriod" : "object",
+                "operatorCode" : "string",
+                "operatorName" : "string",
+                "trainingModeFlag" : "boolean",
+                "suspendedFlag" : "boolean",
+                "offlineFlag" : "boolean",
+                "trxTypeLang" : "string",
+                "currencyDescription" : "string",
+                "fiscalPosNumber" : "string",
+                "serieOfficialBill" : "string",
+                "billType" : "string",
+                "billNumber" : "string",
+                "businessDayDate" : "object",
+                "grossPositiveAmount" : "number",
+                "grossNegativeAmount" : "number",
+                "ivaTaxAmount" : "number",
+                "internalTaxAmount" : "number",
+                "perceptionAmount" : "number",
+                "billTotalAmount" : "number",
+                "hasCustomer" : "boolean",
+                "denomination" : "string",
+                "invoiceCurrencyCode" : "string",
+                "channel" : "string",
+                "uniqueTrxReference" : "string",
+                "createdAt" : "object",
+                "updatedAt" : "object",
+                "version" : "number"
+        }
+}
+{ "TransactionRetailDiscount" : { } }
+{
+        "TransactionRetailItem" : {
+                "_id" : "object",
+                "customerExtendedAmount" : "number",
+                "unitCost" : "number",
+                "unitPrice" : "number",
+                "unitPriceWithDiscounts" : "number",
+                "quantity" : "number",
+                "voidedQuantity" : "number",
+                "units" : "number",
+                "extendedPrice" : "number",
+                "netAmount" : "number",
+                "netSalesAmount" : "number",
+                "marginAsNumber" : "number",
+                "netQuantity" : "number",
+                "marginAsPercent" : "number",
+                "promoDiscountAmount" : "number",
+                "manualDiscountAmount" : "number",
+                "itemDepth" : "number",
+                "remainigWeight" : "number",
+                "transactionObjectId" : "object",
+                "returned" : "boolean",
+                "trxType" : "string",
+                "trxNumber" : "number",
+                "storeCode" : "string",
+                "store" : "object",
+                "storeName" : "string",
+                "terminalCode" : "string",
+                "periodNumber" : "number",
+                "sbPeriodNumber" : "number",
+                "beginDateTime" : "object",
+                "beginDateTimeAsInt" : "number",
+                "businessDayAsInt" : "number",
+                "beginDateTimeHour" : "number",
+                "calendarPeriod" : "object",
+                "operatorCode" : "string",
+                "operatorName" : "string",
+                "serieOfficialBill" : "string",
+                "billType" : "string",
+                "billNumber" : "string",
+                "internalCode" : "string",
+                "description" : "string",
+                "itemType" : "string",
+                "barcode" : "string",
+                "barcodeEntity" : "object",
+                "sequenceNumber" : "number",
+                "merchandiseHierarchyGroupCode" : "string",
+                "merchandiseHierarchyGroupName" : "string",
+                "unitOfMeasureCode" : "string",
+                "unitOfMeasureDecimals" : "number",
+                "unitOfMeasureDescription" : "string",
+                "originalActualUnitPrice" : "number",
+                "voiding" : "boolean",
+                "voidFlag" : "boolean",
+                "trainingModeFlag" : "boolean",
+                "suspendedFlag" : "boolean",
+                "cancelFlag" : "boolean",
+                "locationCode" : "string",
+                "sellerID" : "string",
+                "sellerName" : "string",
+                "ivaType" : "object",
+                "taxDetail" : "object",
+                "vatTotal" : "number",
+                "taxTotal" : "number",
+                "perceptionTotal" : "number",
+                "itemTicketStockInformationList" : "object",
+                "giftCardBalance" : "number",
+                "giftCardRechargeAmount" : "number",
+                "prorratedTxDiscount" : "number",
+                "billTotalAmount" : "number",
+                "onConsignment" : "boolean",
+                "attributes" : "object",
+                "version" : "number",
+                "createdAt" : "object",
+                "updatedAt" : "object",
+                "barcodeList" : "object",
+                "terminal" : "object"
+        }
+}
+{
+        "TransactionRetailItemFuelTest" : {
+                "_id" : "object",
+                "transactionObjectId" : "object",
+                "trxType" : "string",
+                "storeCode" : "string",
+                "storeName" : "string",
+                "store" : "object",
+                "terminalCode" : "string",
+                "periodNumber" : "number",
+                "sbPeriodNumber" : "number",
+                "beginDateTime" : "object",
+                "endDateTime" : "object",
+                "beginDateTimeAsInt" : "number",
+                "businessDayAsInt" : "number",
+                "calendarPeriod" : "object",
+                "operatorCode" : "string",
+                "operatorName" : "string",
+                "cancelFlag" : "boolean",
+                "trainingModeFlag" : "boolean",
+                "suspendedFlag" : "boolean",
+                "internalCode" : "string",
+                "description" : "string",
+                "fuelSaleId" : "string",
+                "fuelPpu" : "number",
+                "fuelAmount" : "number",
+                "fuelVolume" : "number",
+                "fuelPumpId" : "string",
+                "fuelHose" : "string",
+                "fuelInitialVolumeTotalizer" : "number",
+                "fuelFinalVolumeTotalizer" : "number",
+                "fuelTankIdWhereReturned" : "number",
+                "createdAt" : "object",
+                "updatedAt" : "object",
+                "version" : "number"
+        }
+}
+{
+        "TransactionRetailPayment" : {
+                "_id" : "object",
+                "amount" : "number",
+                "change" : "number",
+                "surcharge" : "number",
+                "netAmount" : "number",
+                "foreignCurrencyQuote" : "number",
+                "foreignAmount" : "number",
+                "foreignChange" : "number",
+                "fuelAmount" : "number",
+                "tipAmount" : "number",
+                "donationAmount" : "number",
+                "transactionObjectId" : "object",
+                "trxType" : "string",
+                "trxNumber" : "number",
+                "storeCode" : "string",
+                "store" : "object",
+                "storeName" : "string",
+                "terminalCode" : "string",
+                "periodNumber" : "number",
+                "sbPeriodNumber" : "number",
+                "beginDateTime" : "object",
+                "beginDateTimeAsInt" : "number",
+                "businessDayAsInt" : "number",
+                "beginDateTimeHour" : "number",
+                "calendarPeriod" : "object",
+                "operatorCode" : "string",
+                "operatorName" : "string",
+                "tender" : "object",
+                "tenderCode" : "string",
+                "tenderName" : "string",
+                "tenderType" : "object",
+                "voided" : "boolean",
+                "voiding" : "boolean",
+                "trainingModeFlag" : "boolean",
+                "suspendedFlag" : "boolean",
+                "cancelFlag" : "boolean",
+                "fiscalPosNumber" : "string",
+                "billType" : "string",
+                "serieOfficialBill" : "string",
+                "billNumber" : "string",
+                "currencyISOCode" : "string",
+                "card" : "boolean",
+                "provider" : "string",
+                "vtolStore" : "string",
+                "vtolTerminal" : "string",
+                "referenceNumber" : "string",
+                "lotNumber" : "string",
+                "cardNumber" : "string",
+                "additionalData" : "object",
+                "version" : "number",
+                "createdAt" : "object",
+                "updatedAt" : "object",
+                "terminal" : "object",
+                "tenderRepository" : "object"
+        }
+}
+{
+        "TransactionSubType" : {
+                "_id" : "object",
+                "ref" : "number",
+                "transactionType" : "object",
+                "code" : "number",
+                "name" : "string",
+                "showFlag" : "boolean",
+                "mustReplicate" : "boolean",
+                "version" : "number",
+                "description" : "string"
+        }
+}
+{
+        "TransactionTipRetail" : {
+                "_id" : "object",
+                "paid" : "boolean",
+                "amount" : "object",
+                "storeCode" : "string",
+                "storeName" : "string",
+                "periodNumber" : "number",
+                "sbPeriodNumber" : "number",
+                "userName" : "string",
+                "user" : "object",
+                "trxNumber" : "number",
+                "tenderName" : "string",
+                "trxDate" : "object",
+                "transactionObjectId" : "object",
+                "store" : "object",
+                "calendarPeriod" : "object",
+                "businessDayAsInt" : "number",
+                "createdAt" : "object",
+                "updatedAt" : "object",
+                "version" : "mixed",
+                "externalDepositoryStr" : "string",
+                "id" : "object",
+                "paymentDate" : "object",
+                "sequenceNumber" : "number",
+                "tillExternalDepository" : "object"
+        }
+}
+{
+        "TransactionType" : {
+                "_id" : "object",
+                "code" : "number",
+                "version" : "number"
+        }
+}
+{
+        "TransactionTypeConfiguration" : {
+                "_id" : "object",
+                "ref" : "number",
+                "type" : "number",
+                "enabled" : "boolean",
+                "optionNumber" : "number",
+                "discountsAllowed" : "boolean",
+                "returnsAllowed" : "boolean",
+                "itemsVoidingAllowed" : "boolean",
+                "transactionVoidingAllowed" : "boolean",
+                "transactionSuspensionAllowed" : "boolean",
+                "transactionWithLoyaltyCustomerAllowed" : "boolean",
+                "txAnulAlowed" : "boolean",
+                "refundsAllowed" : "boolean",
+                "itemsAnulAllowed" : "boolean",
+                "version" : "number"
+        }
+}

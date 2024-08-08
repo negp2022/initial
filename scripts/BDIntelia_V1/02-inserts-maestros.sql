@@ -1,0 +1,106 @@
+INSERT INTO Countries (Name, Code) VALUES ('Chile', 'CL');
+INSERT INTO Countries (Name, Code) VALUES ('Argentina', 'AR');
+INSERT INTO Countries (Name, Code) VALUES ('Perú', 'PE');
+INSERT INTO Countries (Name, Code) VALUES ('Colombia', 'CO');
+INSERT INTO Countries (Name, Code) VALUES ('Brasil', 'BR');
+INSERT INTO Countries (Name, Code) VALUES ('Uruguay', 'UY');
+INSERT INTO Countries (Name, Code) VALUES ('Paraguay', 'PY');
+INSERT INTO Countries (Name, Code) VALUES ('Bolivia', 'BO');
+INSERT INTO Countries (Name, Code) VALUES ('Ecuador', 'EC');
+INSERT INTO Countries (Name, Code) VALUES ('Venezuela', 'VE');
+
+INSERT INTO Regions (CountryID, Name) VALUES (1, 'Región Metropolitana');
+INSERT INTO Regions (CountryID, Name) VALUES (1, 'Región de Valparaíso');
+INSERT INTO Regions (CountryID, Name) VALUES (2, 'Provincia de Buenos Aires');
+INSERT INTO Regions (CountryID, Name) VALUES (3, 'Región Lima');
+INSERT INTO Regions (CountryID, Name) VALUES (4, 'Departamento de Cundinamarca');
+INSERT INTO Regions (CountryID, Name) VALUES (5, 'Estado de São Paulo');
+INSERT INTO Regions (CountryID, Name) VALUES (6, 'Departamento de Montevideo');
+INSERT INTO Regions (CountryID, Name) VALUES (7, 'Departamento de Asunción');
+INSERT INTO Regions (CountryID, Name) VALUES (8, 'Departamento de La Paz');
+INSERT INTO Regions (CountryID, Name) VALUES (9, 'Provincia de Guayas');
+
+INSERT INTO Provinces (RegionID, Name) VALUES (1, 'Santiago');
+INSERT INTO Provinces (RegionID, Name) VALUES (1, 'Valparaíso');
+INSERT INTO Provinces (RegionID, Name) VALUES (2, 'La Plata');
+INSERT INTO Provinces (RegionID, Name) VALUES (3, 'Lima');
+INSERT INTO Provinces (RegionID, Name) VALUES (4, 'Bogotá');
+INSERT INTO Provinces (RegionID, Name) VALUES (5, 'São Paulo');
+INSERT INTO Provinces (RegionID, Name) VALUES (6, 'Montevideo');
+INSERT INTO Provinces (RegionID, Name) VALUES (7, 'Asunción');
+INSERT INTO Provinces (RegionID, Name) VALUES (8, 'La Paz');
+INSERT INTO Provinces (RegionID, Name) VALUES (9, 'Guayaquil');
+
+INSERT INTO Cities (ProvinceID, Name) VALUES (1, 'Santiago');
+INSERT INTO Cities (ProvinceID, Name) VALUES (1, 'Valparaíso');
+INSERT INTO Cities (ProvinceID, Name) VALUES (2, 'La Plata');
+INSERT INTO Cities (ProvinceID, Name) VALUES (3, 'Lima');
+INSERT INTO Cities (ProvinceID, Name) VALUES (4, 'Bogotá');
+INSERT INTO Cities (ProvinceID, Name) VALUES (5, 'São Paulo');
+INSERT INTO Cities (ProvinceID, Name) VALUES (6, 'Montevideo');
+INSERT INTO Cities (ProvinceID, Name) VALUES (7, 'Asunción');
+INSERT INTO Cities (ProvinceID, Name) VALUES (8, 'La Paz');
+INSERT INTO Cities (ProvinceID, Name) VALUES (9, 'Guayaquil');
+
+INSERT INTO Departments (Name, Description) VALUES ('Ventas', 'Departamento de ventas');
+INSERT INTO Departments (Name, Description) VALUES ('Marketing', 'Departamento de marketing');
+INSERT INTO Departments (Name, Description) VALUES ('Finanzas', 'Departamento de finanzas');
+INSERT INTO Departments (Name, Description) VALUES ('RRHH', 'Departamento de recursos humanos');
+INSERT INTO Departments (Name, Description) VALUES ('Logística', 'Departamento de logística');
+INSERT INTO Departments (Name, Description) VALUES ('IT', 'Departamento de tecnología');
+INSERT INTO Departments (Name, Description) VALUES ('Compras', 'Departamento de compras');
+INSERT INTO Departments (Name, Description) VALUES ('Producción', 'Departamento de producción');
+INSERT INTO Departments (Name, Description) VALUES ('Calidad', 'Departamento de calidad');
+INSERT INTO Departments (Name, Description) VALUES ('Investigación y Desarrollo', 'Departamento de investigación y desarrollo');
+
+INSERT INTO Categories (Name, Description) VALUES ('Electrónica', 'Categoría de electrónica');
+INSERT INTO Categories (Name, Description) VALUES ('Ropa', 'Categoría de ropa');
+INSERT INTO Categories (Name, Description) VALUES ('Hogar', 'Categoría de hogar');
+INSERT INTO Categories (Name, Description) VALUES ('Deportes', 'Categoría de deportes');
+INSERT INTO Categories (Name, Description) VALUES ('Juguetes', 'Categoría de juguetes');
+INSERT INTO Categories (Name, Description) VALUES ('Libros', 'Categoría de libros');
+INSERT INTO Categories (Name, Description) VALUES ('Música', 'Categoría de música');
+INSERT INTO Categories (Name, Description) VALUES ('Películas', 'Categoría de películas');
+INSERT INTO Categories (Name, Description) VALUES ('Videojuegos', 'Categoría de videojuegos');
+INSERT INTO Categories (Name, Description) VALUES ('Software', 'Categoría de software');
+
+
+INSERT INTO Suppliers (Name, Address, Phone, Email) VALUES ('Proveedor 1', 'Calle 1, Santiago', '123456789', 'proveedor1@example.com');
+INSERT INTO Suppliers (Name, Address, Phone, Email) VALUES ('Proveedor 2', 'Calle 2, Valparaíso', '987654321', 'proveedor2@example.com');
+INSERT INTO Suppliers (Name, Address, Phone, Email) VALUES ('Proveedor 3', 'Calle 3, Concepción', '555123456', 'proveedor3@example.com');
+INSERT INTO Suppliers (Name, Address, Phone, Email) VALUES ('Proveedor 4', 'Calle 4, La Serena', '666789012', 'proveedor4@example.com');
+INSERT INTO Suppliers (Name, Address, Phone, Email) VALUES ('Proveedor 5', 'Calle 5, Antofagasta', '777901234', 'proveedor5@example.com');
+INSERT INTO Suppliers (Name, Address, Phone, Email) VALUES ('Proveedor 6', 'Calle 6, Temuco', '888112233', 'proveedor6@example.com');
+INSERT INTO Suppliers (Name, Address, Phone, Email) VALUES ('Proveedor 7', 'Calle 7, Rancagua', '999345678', 'proveedor7@example.com');
+INSERT INTO Suppliers (Name, Address, Phone, Email) VALUES ('Proveedor 8', 'Calle 8, Talca', '111234567', 'proveedor8@example.com');
+INSERT INTO Suppliers (Name, Address, Phone, Email) VALUES ('Proveedor 9', 'Calle 9, Curicó', '222345678', 'proveedor9@example.com');
+INSERT INTO Suppliers (Name, Address, Phone, Email) VALUES ('Proveedor 10', 'Calle 10, San Fernando', '333456789', 'proveedor10@example.com');
+
+
+INSERT INTO Products (Name, Description, Price, Stock, CategoryID, SupplierID) VALUES ('TV LED 40"', 'TV LED 40 pulgadas', 400000, 10, 1, 1);
+INSERT INTO Products (Name, Description, Price, Stock, CategoryID, SupplierID) VALUES ('Camisa blanca', 'Camisa blanca de algodón', 20000, 50, 2, 2);
+INSERT INTO Products (Name, Description, Price, Stock, CategoryID, SupplierID) VALUES ('Sartén antiadherente', 'Sartén antiadherente de teflón', 50000, 20, 3, 3);
+INSERT INTO Products (Name, Description, Price, Stock, CategoryID, SupplierID) VALUES ('Bicicleta de montaña', 'Bicicleta de montaña con frenos de disco', 800000, 5, 4, 4);
+INSERT INTO Products (Name, Description, Price, Stock, CategoryID, SupplierID) VALUES ('Peluche de osito', 'Peluche de osito de 30 cm', 15000, 30, 5, 5);
+INSERT INTO Products (Name, Description, Price, Stock, CategoryID, SupplierID) VALUES ('Libro de cocina', 'Libro de cocina con recetas saludables', 30000, 25, 6, 6);
+INSERT INTO Products (Name, Description, Price, Stock, CategoryID, SupplierID) VALUES ('CD de música', 'CD de música de rock', 20000, 40, 7, 7);
+INSERT INTO Products (Name, Description, Price, Stock, CategoryID, SupplierID) VALUES ('Película en Blu-ray', 'Película en Blu-ray de acción', 40000, 20, 8, 8);
+INSERT INTO Products (Name, Description, Price, Stock, CategoryID, SupplierID) VALUES ('Videojuego de aventuras', 'Videojuego de aventuras para PC', 60000, 15, 9, 9);
+INSERT INTO Products (Name, Description, Price, Stock, CategoryID, SupplierID) VALUES ('Software de oficina', 'Software de oficina para Windows', 80000, 10, 10, 10);
+INSERT INTO Products (Name, Description, Price, Stock, CategoryID, SupplierID) VALUES ('Tablet de 10 pulgadas', 'Tablet de 10 pulgadas con Wi-Fi', 500000, 5, 1, 1);
+INSERT INTO Products (Name, Description, Price, Stock, CategoryID, SupplierID) VALUES ('Reloj de pulsera', 'Reloj de pulsera de cuero', 40000, 20, 2, 2);
+INSERT INTO Products (Name, Description, Price, Stock, CategoryID, SupplierID) VALUES ('Cafetera eléctrica', 'Cafetera eléctrica con programador', 60000, 15, 3, 3);
+INSERT INTO Products (Name, Description, Price, Stock, CategoryID, SupplierID) VALUES ('Bicicleta de carretera', 'Bicicleta de carretera con cambios de velocidad', 1000000, 5, 4, 4);
+INSERT INTO Products (Name, Description, Price, Stock, CategoryID, SupplierID) VALUES ('Muñeca de porcelana', 'Muñeca de porcelana de 40 cm', 25000, 30, 5, 5);
+INSERT INTO Products (Name, Description, Price, Stock, CategoryID, SupplierID) VALUES ('Libro de historia', 'Libro de historia de la Segunda Guerra Mundial', 35000, 25, 6, 6);
+INSERT INTO Products (Name, Description, Price, Stock, CategoryID, SupplierID) VALUES ('CD de música clásica', 'CD de música clásica de Beethoven', 25000, 40, 7, 7);
+INSERT INTO Products (Name, Description, Price, Stock, CategoryID, SupplierID) VALUES ('Película en DVD', 'Película en DVD de comedia', 30000, 20, 8, 8);
+INSERT INTO Products (Name, Description, Price, Stock, CategoryID, SupplierID) VALUES ('Videojuego de estrategia', 'Videojuego de estrategia para PC', 70000, 15, 9, 9);
+INSERT INTO Products (Name, Description, Price, Stock, CategoryID, SupplierID) VALUES ('Software de diseño gráfico', 'Software de diseño gráfico para Windows', 90000, 10, 10, 10);
+INSERT INTO Products (Name, Description, Price, Stock, CategoryID, SupplierID) VALUES ('Smartphone de 6 pulgadas', 'Smartphone de 6 pulgadas con cámara de 12 megapixeles', 600000, 5, 1, 1);
+INSERT INTO Products (Name, Description, Price, Stock, CategoryID, SupplierID) VALUES ('Reloj de pulsera de lujo', 'Reloj de pulsera de lujo de oro', 100000, 20, 2, 2);
+INSERT INTO Products (Name, Description, Price, Stock, CategoryID, SupplierID) VALUES ('Cafetera exprés', 'Cafetera exprés con programador', 80000, 15, 3, 3);
+INSERT INTO Products (Name, Description, Price, Stock, CategoryID, SupplierID) VALUES ('Bicicleta de montaña de alta gama', 'Bicicleta de montaña de alta gama con frenos de disco', 1200000, 5, 4, 4);
+INSERT INTO Products (Name, Description, Price, Stock, CategoryID, SupplierID) VALUES ('Muñeca de porcelana de colección', 'Muñeca de porcelana de colección de 50 cm', 35000, 30, 5, 5);
+INSERT INTO Products (Name, Description, Price, Stock, CategoryID, SupplierID) VALUES ('Libro de poesía', 'Libro de poesía de amor', 40000, 25, 6, 6);
+INSERT INTO Products (Name, Description, Price, Stock, CategoryID, SupplierID) VALUES ('CD de música electrónica', 'CD de música electrónica de techno', 30000, 40, 7, 7);
