@@ -68,9 +68,9 @@ CREATE TABLE email (
 -- Tabla: telephone
 CREATE TABLE telephone (
     id SERIAL PRIMARY KEY,
-    area_code VARCHAR NOT NULL,
-    country_code VARCHAR NOT NULL,
-    phone_code VARCHAR NOT NULL,
+    area_code VARCHAR,
+    country_code VARCHAR,
+    phone VARCHAR NOT NULL,
     ext VARCHAR
 );
 
