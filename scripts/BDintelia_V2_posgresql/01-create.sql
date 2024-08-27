@@ -145,8 +145,10 @@ CREATE TABLE payment_type (
     id SERIAL PRIMARY KEY,
     code VARCHAR NOT NULL,
     name VARCHAR NOT NULL,
-    ISO_code VARCHAR NOT NULL
+    ISO_code VARCHAR NOT NULL,
+    payment_method_config_id INT UNIQUE REFERENCES payment_method_config(id) ON DELETE CASCADE
 );
+
 
 -- Tabla: payment_method_config
 CREATE TABLE payment_method_config (
@@ -154,8 +156,10 @@ CREATE TABLE payment_method_config (
     sale_enabled BOOLEAN DEFAULT true NOT NULL,
     return_enabled BOOLEAN DEFAULT true NOT NULL,
     min_accepted DECIMAL NOT NULL,
-    max_accepted DECIMAL NOT NULL
+    max_accepted DECIMAL NOT NULL,
+    payment_type_code VARCHAR UNIQUE
 );
+
 
 -- Tabla: payment_transaction
 CREATE TABLE payment_transaction (
@@ -204,6 +208,7 @@ CREATE TABLE wallet_payment (
 CREATE TABLE transaction_type (
     id SERIAL PRIMARY KEY,
     code VARCHAR NOT NULL,
+	name VARCHAR NOT NULL,
     description VARCHAR NOT NULL
 );
 
@@ -211,6 +216,7 @@ CREATE TABLE transaction_type (
 CREATE TABLE receipt_type (
     id SERIAL PRIMARY KEY,
     code VARCHAR NOT NULL,
+	name VARCHAR NOT NULL,
     description VARCHAR NOT NULL
 );
 
