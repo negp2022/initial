@@ -610,82 +610,332 @@ INSERT INTO address (street, number, additional1, additional2, city_id) VALUES
 
 --CONTACT METHOD
 INSERT INTO contact_method (contact_type, customer_id, email_id, telephone_id, address_id) VALUES
-('Email', 1, 1, NULL, NULL),
-('Telefono', 1, NULL, 1, NULL),
-('Direccion', 1, NULL, NULL, 1),
+('CASA', 1, 1, 1, 1),
 
-('Email', 2, 2, NULL, NULL),
-('Telefono', 2, NULL, 2, NULL),
-('Direccion', 2, NULL, NULL, 2),
+('TRABAJO', 2, 2, 2, 2),
 
-('Email', 3, 3, NULL, NULL),
-('Telefono', 3, NULL, 3, NULL),
-('Direccion', 3, NULL, NULL, 3),
+('CASA', 3, 3, 3, 3),
 
-('Email', 4, 4, NULL, NULL),
-('Telefono', 4, NULL, 4, NULL),
-('Direccion', 4, NULL, NULL, 4),
+('PRINCIPAL', 4, 4, 4, 4),
 
-('Email', 5, 5, NULL, NULL),
-('Telefono', 5, NULL, 5, NULL),
-('Direccion', 5, NULL, NULL, 5),
+('CASA', 5, 5, 5, 5),
 
-('Email', 6, 6, NULL, NULL),
-('Telefono', 6, NULL, 6, NULL),
-('Direccion', 6, NULL, NULL, 6),
+('CASA', 6, 6, 6, 6),
 
-('Email', 7, 7, NULL, NULL),
-('Telefono', 7, NULL, 7, NULL),
-('Direccion', 7, NULL, NULL, 7),
+('CASA', 7, 7, 7, 7),
 
-('Email', 8, 8, NULL, NULL),
-('Telefono', 8, NULL, 8, NULL),
-('Direccion', 8, NULL, NULL, 8),
+('TRABAJO', 8, 8, 8, 8),
 
-('Email', 9, 9, NULL, NULL),
-('Telefono', 9, NULL, 9, NULL),
-('Direccion', 9, NULL, NULL, 9),
+('TRABAJO', 9, 9, 9, 9),
 
-('Email', 10, 10, NULL, NULL),
-('Telefono', 10, NULL, 10, NULL),
-('Direccion', 10, NULL, NULL, 10),
+('TRABAJO', 10, 10, 10, 10),
 
-('Email', 11, 11, NULL, NULL),
-('Telefono', 11, NULL, 11, NULL),
-('Direccion', 11, NULL, NULL, 11),
+('TRABAJO', 11, 11, 11, 11),
 
-('Email', 12, 12, NULL, NULL),
-('Telefono', 12, NULL, 12, NULL),
-('Direccion', 12, NULL, NULL, 12),
+('TRABAJO', 12, 12, 12, 12),
 
-('Email', 13, 13, NULL, NULL),
-('Telefono', 13, NULL, 13, NULL),
-('Direccion', 13, NULL, NULL, 13),
+('TRABAJO', 13, 13, 13, 13),
 
-('Email', 14, 14, NULL, NULL),
-('Telefono', 14, NULL, 14, NULL),
-('Direccion', 14, NULL, NULL, 14),
+('PRINCIPAL', 14, 14, 14, 14),
 
-('Email', 15, 15, NULL, NULL),
-('Telefono', 15, NULL, 15, NULL),
-('Direccion', 15, NULL, NULL, 15),
+('PRINCIPAL', 15, 15, 15, 15),
 
-('Email', 16, 16, NULL, NULL),
-('Telefono', 16, NULL, 16, NULL),
-('Direccion', 16, NULL, NULL, 16),
+('PRINCIPAL', 16, 16, 16, 16),
 
-('Email', 17, 17, NULL, NULL),
-('Telefono', 17, NULL, 17, NULL),
-('Direccion', 17, NULL, NULL, 17),
+('PRINCIPAL', 17, 17, 17, 17),
 
-('Email', 18, 18, NULL, NULL),
-('Telefono', 18, NULL, 18, NULL),
-('Direccion', 18, NULL, NULL, 18),
+('CASA', 18, 18, 18, 18),
 
-('Email', 19, 19, NULL, NULL),
-('Telefono', 19, NULL, 19, NULL),
-('Direccion', 19, NULL, NULL, 19),
+('TRABAJO', 19, 19, 19, 19),
 
-('Email', 20, 20, NULL, NULL),
-('Telefono', 20, NULL, 20, NULL),
-('Direccion', 20, NULL, NULL, 20);
+('CASA', 20, 20, 20, 20);
+
+
+INSERT INTO transaction_status_config (code, description)
+VALUES 
+    ('PENDING', 'La transacción ha sido iniciada pero aún no ha sido completada'),
+    ('COMPLETED', 'La transacción ha sido completada exitosamente'),
+    ('FAILED', 'La transacción ha fallado y no se ha podido procesar'),
+    ('CANCELLED', 'La transacción ha sido cancelada por el usuario o el sistema'),
+    ('REFUNDED', 'El monto de la transacción ha sido reembolsado al cliente'),
+    ('ON_HOLD', 'La transacción está en espera por algún motivo, como revisión manual');
+	
+
+-- Nivel 1: Categorías principales
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('TEC', 'Tecnología', NULL);
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('HOME', 'Hogar', NULL);
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('FASHION', 'Moda', NULL);
+
+-- Nivel 2: Subcategorías (dependen de las categorías principales)
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('TV', 'Televisores', (SELECT id FROM product_category WHERE code = 'TEC'));
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('COMP', 'Computadoras', (SELECT id FROM product_category WHERE code = 'TEC'));
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('KITCH', 'Cocina', (SELECT id FROM product_category WHERE code = 'HOME'));
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('BED', 'Dormitorio', (SELECT id FROM product_category WHERE code = 'HOME'));
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('MEN', 'Hombres', (SELECT id FROM product_category WHERE code = 'FASHION'));
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('WOMEN', 'Mujeres', (SELECT id FROM product_category WHERE code = 'FASHION'));
+
+-- Nivel 3: Sub-subcategorías (dependen de las subcategorías)
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('SMART_TV', 'Televisores Smart', (SELECT id FROM product_category WHERE code = 'TV'));
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('LAPTOP', 'Laptops', (SELECT id FROM product_category WHERE code = 'COMP'));
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('FRIDGE', 'Refrigeradores', (SELECT id FROM product_category WHERE code = 'KITCH'));
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('BED_FURN', 'Muebles de Dormitorio', (SELECT id FROM product_category WHERE code = 'BED'));
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('M_SHIRTS', 'Camisas para Hombre', (SELECT id FROM product_category WHERE code = 'MEN'));
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('W_SHOES', 'Zapatos para Mujer', (SELECT id FROM product_category WHERE code = 'WOMEN'));
+
+-- Marcas relacionadas con la categoría Tecnología (TEC)
+INSERT INTO brand (code, name, description) VALUES 
+    ('SAMSUNG', 'Samsung', 'Líder en tecnología de consumo, incluyendo televisores, smartphones y electrodomésticos'),
+    ('APPLE', 'Apple', 'Reconocida marca de tecnología, famosa por sus iPhones, Macs y otros dispositivos innovadores'),
+    ('SONY', 'Sony', 'Marca global en productos electrónicos, especialmente en audio, video y cámaras');
+
+-- Marcas relacionadas con la categoría Hogar (HOME)
+INSERT INTO brand (code, name, description) VALUES 
+    ('WHIRLPOOL', 'Whirlpool', 'Fabricante líder de electrodomésticos para el hogar, incluyendo refrigeradores y lavadoras'),
+    ('LG', 'LG Electronics', 'Proveedor global de soluciones para el hogar, incluyendo electrodomésticos y productos de tecnología'),
+    ('PHILIPS', 'Philips', 'Marca líder en electrodomésticos y productos de salud para el hogar');
+
+-- Marcas relacionadas con la categoría Moda (FASHION)
+INSERT INTO brand (code, name, description) VALUES 
+    ('NIKE', 'Nike', 'Líder mundial en ropa y calzado deportivo'),
+    ('ADIDAS', 'Adidas', 'Marca global en ropa, calzado y accesorios deportivos'),
+    ('ZARA', 'Zara', 'Marca de moda reconocida por su estilo contemporáneo y tendencias rápidas');
+
+-- Marcas que pueden abarcar múltiples categorías (cross-category)
+INSERT INTO brand (code, name, description) VALUES 
+    ('HUAWEI', 'Huawei', 'Tecnología de vanguardia en smartphones, wearables y dispositivos de red'),
+    ('PANASONIC', 'Panasonic', 'Empresa electrónica multinacional que ofrece desde cámaras hasta electrodomésticos'),
+    ('BOSCH', 'Bosch', 'Proveedor líder en tecnología y servicios, con productos que van desde herramientas eléctricas hasta electrodomésticos');
+	
+-- Atributos generales para productos de tecnología, hogar y moda
+-- Atributos comunes en Moda (FASHION)
+INSERT INTO "attribute" (code, name, description) VALUES 
+    ('SIZE', 'Talle', 'El tamaño del producto, como ropa o calzado, por ejemplo, S, M, L, XL'),
+    ('COLOR', 'Color', 'El color del producto, aplicable a ropa, calzado y accesorios'),
+    ('MATERIAL', 'Material', 'El material del producto, como algodón, cuero, sintético, etc.'),
+    ('GENDER', 'Género', 'El género para el que está diseñado el producto, como Hombre, Mujer, Unisex');
+
+-- Atributos comunes en Tecnología (TEC)
+INSERT INTO "attribute" (code, name, description) VALUES 
+    ('SCREEN_SIZE', 'Tamaño de Pantalla', 'El tamaño de la pantalla de dispositivos como televisores y computadoras, medido en pulgadas'),
+    ('RESOLUTION', 'Resolución', 'La resolución de la pantalla de televisores, monitores o laptops, como Full HD, 4K'),
+    ('PROCESSOR', 'Procesador', 'El tipo de procesador en computadoras o smartphones, como Intel Core i7, Apple M1'),
+    ('MEMORY', 'Memoria RAM', 'La cantidad de memoria RAM en un dispositivo, medida en GB'),
+    ('STORAGE', 'Almacenamiento', 'La capacidad de almacenamiento de un dispositivo, como 256GB, 1TB');
+
+-- Atributos comunes en Hogar (HOME)
+INSERT INTO "attribute" (code, name, description) VALUES 
+    ('ENERGY_RATING', 'Clasificación Energética', 'El nivel de eficiencia energética de un electrodoméstico, como A++, B'),
+    ('CAPACITY', 'Capacidad', 'La capacidad de un electrodoméstico, como la cantidad de litros en un refrigerador'),
+    ('DIMENSIONS', 'Dimensiones', 'Las dimensiones físicas de un producto, como alto, ancho y profundidad, medidos en cm'),
+    ('WEIGHT', 'Peso', 'El peso del producto, medido en kilogramos');
+
+
+-- Productos de la categoría Tecnología (TEC)
+INSERT INTO product (code, barcode, name, description, unit_price, net_price, category_id, brand_id, tax_rate_id)
+VALUES 
+    ('TVSMART01', '1234567890123', 'Samsung Smart TV 55"', 'Televisor inteligente 4K UHD con HDR', 499999.99, 420168.06, 
+     (SELECT id FROM product_category WHERE code = 'SMART_TV'), 
+     (SELECT id FROM brand WHERE code = 'SAMSUNG'), 
+     (SELECT id FROM tax_rates WHERE code = 'IVA19')),
+
+    ('LAPTOP01', '1234567890124', 'Apple MacBook Pro 13"', 'Laptop con chip Apple M1 y 256GB SSD', 1299999.99, 1092436.13, 
+     (SELECT id FROM product_category WHERE code = 'LAPTOP'), 
+     (SELECT id FROM brand WHERE code = 'APPLE'), 
+     (SELECT id FROM tax_rates WHERE code = 'IVA19'));
+
+-- Productos de la categoría Hogar (HOME)
+INSERT INTO product (code, barcode, name, description, unit_price, net_price, category_id, brand_id, tax_rate_id)
+VALUES 
+    ('FRIDGE01', '1234567890125', 'LG Refrigerador No Frost 500L', 'Refrigerador con eficiencia energética A++', 749999.99, 630252.10, 
+     (SELECT id FROM product_category WHERE code = 'FRIDGE'), 
+     (SELECT id FROM brand WHERE code = 'LG'), 
+     (SELECT id FROM tax_rates WHERE code = 'IVA19')),
+
+    ('BEDSET01', '1234567890126', 'Whirlpool Juego de Dormitorio', 'Cama king size con colchón de alta densidad', 549999.99, 462184.87, 
+     (SELECT id FROM product_category WHERE code = 'BED_FURN'), 
+     (SELECT id FROM brand WHERE code = 'WHIRLPOOL'), 
+     (SELECT id FROM tax_rates WHERE code = 'IVA19'));
+
+-- Productos de la categoría Moda (FASHION)
+INSERT INTO product (code, barcode, name, description, unit_price, net_price, category_id, brand_id, tax_rate_id)
+VALUES 
+    ('MSHIRT01', '1234567890127', 'Nike Camisa Hombre', 'Camisa deportiva Nike Dri-FIT', 49999.99, 42016.81, 
+     (SELECT id FROM product_category WHERE code = 'M_SHIRTS'), 
+     (SELECT id FROM brand WHERE code = 'NIKE'), 
+     (SELECT id FROM tax_rates WHERE code = 'IVA19')),
+
+    ('WSHOES01', '1234567890128', 'Adidas Zapatos Mujer', 'Zapatos deportivos Adidas Ultraboost', 149999.99, 126050.42, 
+     (SELECT id FROM product_category WHERE code = 'W_SHOES'), 
+     (SELECT id FROM brand WHERE code = 'ADIDAS'), 
+     (SELECT id FROM tax_rates WHERE code = 'IVA19'));
+
+
+
+-- Atributos para Samsung Smart TV
+INSERT INTO product_attribute (value, product_id, attribute_id)
+VALUES 
+    ('55"', 
+     (SELECT id FROM product WHERE code = 'TVSMART01'), 
+     (SELECT id FROM "attribute" WHERE code = 'SCREEN_SIZE')),
+     
+    ('4K UHD', 
+     (SELECT id FROM product WHERE code = 'TVSMART01'), 
+     (SELECT id FROM "attribute" WHERE code = 'RESOLUTION'));
+
+-- Atributos para Apple MacBook Pro
+INSERT INTO product_attribute (value, product_id, attribute_id)
+VALUES 
+    ('13"', 
+     (SELECT id FROM product WHERE code = 'LAPTOP01'), 
+     (SELECT id FROM "attribute" WHERE code = 'SCREEN_SIZE')),
+     
+    ('Apple M1', 
+     (SELECT id FROM product WHERE code = 'LAPTOP01'), 
+     (SELECT id FROM "attribute" WHERE code = 'PROCESSOR')),
+     
+    ('8GB', 
+     (SELECT id FROM product WHERE code = 'LAPTOP01'), 
+     (SELECT id FROM "attribute" WHERE code = 'MEMORY')),
+     
+    ('256GB', 
+     (SELECT id FROM product WHERE code = 'LAPTOP01'), 
+     (SELECT id FROM "attribute" WHERE code = 'STORAGE'));
+
+-- Atributos para LG Refrigerador
+INSERT INTO product_attribute (value, product_id, attribute_id)
+VALUES 
+    ('500L', 
+     (SELECT id FROM product WHERE code = 'FRIDGE01'), 
+     (SELECT id FROM "attribute" WHERE code = 'CAPACITY')),
+     
+    ('A++', 
+     (SELECT id FROM product WHERE code = 'FRIDGE01'), 
+     (SELECT id FROM "attribute" WHERE code = 'ENERGY_RATING'));
+
+-- Atributos para Whirlpool Juego de Dormitorio
+INSERT INTO product_attribute (value, product_id, attribute_id)
+VALUES 
+    ('King Size', 
+     (SELECT id FROM product WHERE code = 'BEDSET01'), 
+     (SELECT id FROM "attribute" WHERE code = 'SIZE')),
+     
+    ('Blanco', 
+     (SELECT id FROM product WHERE code = 'BEDSET01'), 
+     (SELECT id FROM "attribute" WHERE code = 'COLOR'));
+
+-- Atributos para Nike Camisa Hombre
+INSERT INTO product_attribute (value, product_id, attribute_id)
+VALUES 
+    ('M', 
+     (SELECT id FROM product WHERE code = 'MSHIRT01'), 
+     (SELECT id FROM "attribute" WHERE code = 'SIZE')),
+     
+    ('Rojo', 
+     (SELECT id FROM product WHERE code = 'MSHIRT01'), 
+     (SELECT id FROM "attribute" WHERE code = 'COLOR'));
+
+-- Atributos para Adidas Zapatos Mujer
+INSERT INTO product_attribute (value, product_id, attribute_id)
+VALUES 
+    ('38', 
+     (SELECT id FROM product WHERE code = 'WSHOES01'), 
+     (SELECT id FROM "attribute" WHERE code = 'SIZE')),
+     
+    ('Negro', 
+     (SELECT id FROM product WHERE code = 'WSHOES01'), 
+     (SELECT id FROM "attribute" WHERE code = 'COLOR'));
+
+
+INSERT INTO terminal_category (code, description) VALUES 
+    ('POS', 'Punto de Venta'),
+    ('KIOSK', 'Kiosco de Autoservicio'),
+    ('ONLINE', 'Terminal de Ventas Online'),
+    ('CUST_SERV', 'Terminal de Servicio al Cliente'),
+    ('CHECKOUT', 'Caja Registradora');
+
+
+INSERT INTO store (code, name, email, address, phone_number, city_id) VALUES 
+    ('ST001', 'Intelia Iquique', 'iquique@intelia.com', 'Av. Héroes de la Concepción 2555, Iquique', '+56 57 123 4567', 
+    (SELECT id FROM city WHERE code = 'IQ1')),
+    
+    ('ST002', 'Intelia Antofagasta', 'antofagasta@intelia.com', 'Av. Balmaceda 2355, Antofagasta', '+56 55 234 5678', 
+    (SELECT id FROM city WHERE code = 'AN1')),
+    
+    ('ST003', 'Intelia Santiago', 'santiago@intelia.com', 'Av. Libertador Bernardo O\'Higgins 1234, Santiago', '+56 2 876 5432', 
+    (SELECT id FROM city WHERE code = 'ST1')),
+    
+    ('ST004', 'Intelia Valparaíso', 'valparaiso@intelia.com', 'Av. Pedro Montt 4567, Valparaíso', '+56 32 765 4321', 
+    (SELECT id FROM city WHERE code = 'VA3')),
+    
+    ('ST005', 'Intelia Puerto Montt', 'puertomontt@intelia.com', 'Av. Presidente Ibáñez 6789, Puerto Montt', '+56 65 987 6543', 
+    (SELECT id FROM city WHERE code = 'PM1'));
+
+-- Terminales para Falabella Iquique
+INSERT INTO terminal (code, name, store_id, terminal_category_id) VALUES 
+    ('TERM001', 'Caja 1', 
+    (SELECT id FROM store WHERE code = 'ST001'), 
+    (SELECT id FROM terminal_category WHERE code = 'CHECKOUT')),
+    
+    ('TERM002', 'Kiosco 1', 
+    (SELECT id FROM store WHERE code = 'ST001'), 
+    (SELECT id FROM terminal_category WHERE code = 'KIOSK')),
+    
+    ('TERM003', 'Servicio al Cliente', 
+    (SELECT id FROM store WHERE code = 'ST001'), 
+    (SELECT id FROM terminal_category WHERE code = 'POS'));
+
+-- Terminales para Falabella Antofagasta
+INSERT INTO terminal (code, name, store_id, terminal_category_id) VALUES 
+    ('TERM004', 'Caja 1', 
+    (SELECT id FROM store WHERE code = 'ST002'), 
+    (SELECT id FROM terminal_category WHERE code = 'CHECKOUT')),
+    
+    ('TERM005', 'Kiosco 1', 
+    (SELECT id FROM store WHERE code = 'ST002'), 
+    (SELECT id FROM terminal_category WHERE code = 'POS')),
+    
+    ('TERM006', 'Terminal Online', 
+    (SELECT id FROM store WHERE code = 'ST002'), 
+    (SELECT id FROM terminal_category WHERE code = 'ONLINE'));
+
+-- Terminales para Falabella Santiago
+INSERT INTO terminal (code, name, store_id, terminal_category_id) VALUES 
+    ('TERM007', 'Caja 1', 
+    (SELECT id FROM store WHERE code = 'ST003'), 
+    (SELECT id FROM terminal_category WHERE code = 'POS')),
+    
+    ('TERM008', 'Caja 2', 
+    (SELECT id FROM store WHERE code = 'ST003'), 
+    (SELECT id FROM terminal_category WHERE code = 'CHECKOUT')),
+    
+    ('TERM009', 'Kiosco 1', 
+    (SELECT id FROM store WHERE code = 'ST003'), 
+    (SELECT id FROM terminal_category WHERE code = 'KIOSK'));
+
+-- Terminales para Falabella Valparaíso
+INSERT INTO terminal (code, name, store_id, terminal_category_id) VALUES 
+    ('TERM010', 'Caja 1', 
+    (SELECT id FROM store WHERE code = 'ST004'), 
+    (SELECT id FROM terminal_category WHERE code = 'CHECKOUT')),
+    
+    ('TERM011', 'Kiosco 1', 
+    (SELECT id FROM store WHERE code = 'ST004'), 
+    (SELECT id FROM terminal_category WHERE code = 'KIOSK')),
+    
+    ('TERM012', 'Terminal Online', 
+    (SELECT id FROM store WHERE code = 'ST004'), 
+    (SELECT id FROM terminal_category WHERE code = 'POS'));
+
+-- Terminales para Falabella Puerto Montt
+INSERT INTO terminal (code, name, store_id, terminal_category_id) VALUES 
+    ('TERM013', 'Caja 1', 
+    (SELECT id FROM store WHERE code = 'ST005'), 
+    (SELECT id FROM terminal_category WHERE code = 'CHECKOUT')),
+    
+    ('TERM014', 'Kiosco 1', 
+    (SELECT id FROM store WHERE code = 'ST005'), 
+    (SELECT id FROM terminal_category WHERE code = 'POS')),
+    
+    ('TERM015', 'Servicio al Cliente', 
+    (SELECT id FROM store WHERE code = 'ST005'), 
+    (SELECT id FROM terminal_category WHERE code = 'CUST_SERV'));

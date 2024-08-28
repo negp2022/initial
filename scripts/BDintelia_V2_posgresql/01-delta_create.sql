@@ -70,3 +70,35 @@ BEGIN
         ON DELETE CASCADE;
     END IF;
 END $$;
+
+DO $$
+BEGIN
+    -- Verificar si la columna 'parent_category_id' ya existe en la tabla 'product_category'
+    IF NOT EXISTS (
+        SELECT 1 
+        FROM information_schema.columns 
+        WHERE table_name='product_category' AND column_name='parent_category_id'
+    ) THEN
+        -- Agregar la columna 'parent_category_id'
+        ALTER TABLE product_category
+        ADD COLUMN parent_category_id INT;
+    END IF;
+
+    -- Verificar si la clave foránea ya existe en la tabla 'product_category'
+    IF NOT EXISTS (
+        SELECT 1 
+        FROM information_schema.table_constraints tc
+        JOIN information_schema.key_column_usage kcu
+        ON tc.constraint_name = kcu.constraint_name
+        WHERE tc.table_name = 'product_category' 
+        AND tc.constraint_type = 'FOREIGN KEY'
+        AND kcu.column_name = 'parent_category_id'
+    ) THEN
+        -- Crear la clave foránea para 'parent_category_id'
+        ALTER TABLE product_category
+        ADD CONSTRAINT fk_parent_category
+        FOREIGN KEY (parent_category_id)
+        REFERENCES product_category(id)
+        ON DELETE SET NULL;
+    END IF;
+END $$;

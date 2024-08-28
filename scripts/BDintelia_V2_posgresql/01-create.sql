@@ -342,8 +342,16 @@ CREATE TABLE brand (
 CREATE TABLE product_category (
     id SERIAL PRIMARY KEY,
     code VARCHAR(50) NOT NULL,
-    description VARCHAR(255) NOT NULL
+    description VARCHAR(255) NOT NULL,
+    parent_category_id INT,  -- Esta columna establece la relación recursiva
+
+    -- Definición de la clave foránea para la relación recursiva
+    CONSTRAINT fk_parent_category
+    FOREIGN KEY (parent_category_id)
+    REFERENCES product_category(id)
+    ON DELETE SET NULL  -- Si se elimina la categoría padre, se establece a NULL
 );
+
 
 -- Tabla: attribute
 CREATE TABLE "attribute" (
