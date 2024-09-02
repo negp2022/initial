@@ -140,16 +140,6 @@ CREATE TABLE terminal (
     FOREIGN KEY (terminal_category_id) REFERENCES terminal_category(id)
 );
 
--- Tabla: payment_type
-CREATE TABLE payment_type (
-    id SERIAL PRIMARY KEY,
-    code VARCHAR NOT NULL,
-    name VARCHAR NOT NULL,
-    ISO_code VARCHAR NOT NULL,
-    payment_method_config_id INT UNIQUE REFERENCES payment_method_config(id) ON DELETE CASCADE
-);
-
-
 -- Tabla: payment_method_config
 CREATE TABLE payment_method_config (
     id SERIAL PRIMARY KEY,
@@ -160,6 +150,14 @@ CREATE TABLE payment_method_config (
     payment_type_code VARCHAR UNIQUE
 );
 
+-- Tabla: payment_type
+CREATE TABLE payment_type (
+    id SERIAL PRIMARY KEY,
+    code VARCHAR NOT NULL,
+    name VARCHAR NOT NULL,
+    ISO_code VARCHAR NOT NULL,
+    payment_method_config_id INT UNIQUE REFERENCES payment_method_config(id) ON DELETE CASCADE
+);
 
 -- Tabla: payment_transaction
 CREATE TABLE payment_transaction (

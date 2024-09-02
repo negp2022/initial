@@ -861,7 +861,7 @@ INSERT INTO store (code, name, email, address, phone_number, city_id) VALUES
     ('ST002', 'Intelia Antofagasta', 'antofagasta@intelia.com', 'Av. Balmaceda 2355, Antofagasta', '+56 55 234 5678', 
     (SELECT id FROM city WHERE code = 'AN1')),
     
-    ('ST003', 'Intelia Santiago', 'santiago@intelia.com', 'Av. Libertador Bernardo O\'Higgins 1234, Santiago', '+56 2 876 5432', 
+    ('ST003', 'Intelia Santiago', 'santiago@intelia.com', 'Av. Libertador Bernardo OHiggins 1234, Santiago', '+56 2 876 5432', 
     (SELECT id FROM city WHERE code = 'ST1')),
     
     ('ST004', 'Intelia Valparaíso', 'valparaiso@intelia.com', 'Av. Pedro Montt 4567, Valparaíso', '+56 32 765 4321', 
