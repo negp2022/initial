@@ -159,13 +159,60 @@ CREATE TABLE payment_type (
     payment_method_config_id INT UNIQUE REFERENCES payment_method_config(id) ON DELETE CASCADE
 );
 
+-- Tabla: transaction_type
+CREATE TABLE transaction_type (
+    id SERIAL PRIMARY KEY,
+    code VARCHAR NOT NULL,
+	name VARCHAR NOT NULL,
+    description VARCHAR NOT NULL
+);
+
+-- Tabla: receipt_type
+CREATE TABLE receipt_type (
+    id SERIAL PRIMARY KEY,
+    code VARCHAR NOT NULL,
+	name VARCHAR NOT NULL,
+    description VARCHAR NOT NULL
+);
+
+-- Tabla: transaction_status_config
+CREATE TABLE transaction_status_config (
+    id SERIAL PRIMARY KEY,
+    code VARCHAR NOT NULL,
+    description VARCHAR NOT NULL
+);
+
+-- Tabla: transaction
+CREATE TABLE transaction (
+    id SERIAL PRIMARY KEY,
+    total DECIMAL NOT NULL,
+    fiscal_number VARCHAR,
+    cancel_flag BOOLEAN NOT NULL,
+    begin_time TIMESTAMP NOT NULL,
+    end_time TIMESTAMP NOT NULL,
+    id_tx VARCHAR NOT NULL,
+    terminal_id INT NOT NULL,
+    customer_id INT NOT NULL,
+    transaction_type_id INT NOT NULL,
+    receipt_type_id INT NOT NULL,
+    transaction_status_config_id INT NOT NULL,
+    FOREIGN KEY (terminal_id) REFERENCES terminal(id),
+    FOREIGN KEY (customer_id) REFERENCES customer(id),
+    FOREIGN KEY (transaction_type_id) REFERENCES transaction_type(id),
+    FOREIGN KEY (receipt_type_id) REFERENCES receipt_type(id),
+    FOREIGN KEY (transaction_status_config_id) REFERENCES transaction_status_config(id)
+);
+
 -- Tabla: payment_transaction
 CREATE TABLE payment_transaction (
     id SERIAL PRIMARY KEY,
     amount DECIMAL NOT NULL,
     payment_type_id INT NOT NULL,
-    FOREIGN KEY (payment_type_id) REFERENCES payment_type(id)
+    transaction_id INT NOT NULL,
+    FOREIGN KEY (payment_type_id) REFERENCES payment_type(id),
+    FOREIGN KEY (transaction_id) REFERENCES transaction(id) ON DELETE CASCADE
 );
+
 
 -- Tabla: bank
 CREATE TABLE bank (
@@ -200,52 +247,6 @@ CREATE TABLE wallet_payment (
     effective_date TIMESTAMP NOT NULL,
     payment_transaction_id INT NOT NULL,
     FOREIGN KEY (payment_transaction_id) REFERENCES payment_transaction(id)
-);
-
--- Tabla: transaction_type
-CREATE TABLE transaction_type (
-    id SERIAL PRIMARY KEY,
-    code VARCHAR NOT NULL,
-	name VARCHAR NOT NULL,
-    description VARCHAR NOT NULL
-);
-
--- Tabla: receipt_type
-CREATE TABLE receipt_type (
-    id SERIAL PRIMARY KEY,
-    code VARCHAR NOT NULL,
-	name VARCHAR NOT NULL,
-    description VARCHAR NOT NULL
-);
-
--- Tabla: transaction_status_config
-CREATE TABLE transaction_status_config (
-    id SERIAL PRIMARY KEY,
-    code VARCHAR NOT NULL,
-    description VARCHAR NOT NULL
-);
-
--- Tabla: transaction
-CREATE TABLE transaction (
-    id SERIAL PRIMARY KEY,
-    total DECIMAL NOT NULL,
-    fiscal_number VARCHAR,
-    cancel_flag BOOLEAN NOT NULL,
-    begin_time TIMESTAMP NOT NULL,
-    end_time TIMESTAMP NOT NULL,
-    id_tx VARCHAR NOT NULL,
-    payment_transaction_id INT NOT NULL,
-    terminal_id INT NOT NULL,
-    customer_id INT NOT NULL,
-    transaction_type_id INT NOT NULL,
-    receipt_type_id INT NOT NULL,
-    transaction_status_config_id INT NOT NULL,
-    FOREIGN KEY (payment_transaction_id) REFERENCES payment_transaction(id),
-    FOREIGN KEY (terminal_id) REFERENCES terminal(id),
-    FOREIGN KEY (customer_id) REFERENCES customer(id),
-    FOREIGN KEY (transaction_type_id) REFERENCES transaction_type(id),
-    FOREIGN KEY (receipt_type_id) REFERENCES receipt_type(id),
-    FOREIGN KEY (transaction_status_config_id) REFERENCES transaction_status_config(id)
 );
 
 -- Tabla: role
