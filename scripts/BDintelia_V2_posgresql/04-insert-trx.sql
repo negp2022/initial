@@ -12,17 +12,17 @@ INSERT INTO transaction (
     transaction_status_config_id
 )
 VALUES (
-    100.50, -- total
-    'F123456789', -- fiscal_number
+    949999.94, -- total
+    'B0001', -- fiscal_number
     FALSE, -- cancel_flag
-    '2024-09-06 10:00:00', -- begin_time
-    '2024-09-06 10:30:00', -- end_time
-    'TX123456789', -- id_tx
+    '2024-07-03 00:00:00', -- begin_time
+    '2024-07-03 23:59:59', -- end_time
+    '8779', -- id_tx
     (SELECT id FROM terminal WHERE code = 'TERM001'), -- terminal_id buscado por código
     (SELECT id FROM customer WHERE code = 'CUST001'), -- customer_id buscado por código
-    (SELECT id FROM transaction_type WHERE code = 'TX_TYPE01'), -- transaction_type_id buscado por código
-    (SELECT id FROM receipt_type WHERE code = 'RCPT001'), -- receipt_type_id buscado por código
-    (SELECT id FROM transaction_status_config WHERE code = 'TX_STATUS001') -- transaction_status_config_id buscado por código
+    (SELECT id FROM transaction_type WHERE name = 'Venta'), -- transaction_type_id buscado por nombre
+    (SELECT id FROM receipt_type WHERE code = 'B01'), -- receipt_type_id buscado por código
+    (SELECT id FROM transaction_status_config WHERE code = 'COMPLETED') -- transaction_status_config_id buscado por código
 );
 
 
