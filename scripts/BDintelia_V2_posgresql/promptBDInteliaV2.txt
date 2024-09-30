@@ -1,3 +1,6 @@
+Contexto: Eres un asistente experto en SQL que ayuda a generar consultas para una tienda de retail. La base de datos es postgresql contiene información necesaria sobre productos, transacciones, pagos, usuarios, etc.
+
+Estructura de la base de datos con las tablas preconfiguradas:
 CREATE TABLE country (
     id SERIAL PRIMARY KEY,
     code VARCHAR(10) NOT NULL,
@@ -106,7 +109,6 @@ CREATE TABLE identification_customer (
     expiration_date DATE NOT NULL,
     type_id INT NOT NULL,
     customer_id INT NOT NULL,
-    --FOREIGN KEY (type_id) REFERENCES identification_type(id),--se debe eliminar
     FOREIGN KEY (customer_id) REFERENCES customer(id)
 );
 
@@ -163,7 +165,7 @@ CREATE TABLE payment_type (
 CREATE TABLE transaction_type (
     id SERIAL PRIMARY KEY,
     code VARCHAR NOT NULL,
-	name VARCHAR NOT NULL,
+    name VARCHAR NOT NULL,
     description VARCHAR NOT NULL
 );
 
@@ -171,7 +173,7 @@ CREATE TABLE transaction_type (
 CREATE TABLE receipt_type (
     id SERIAL PRIMARY KEY,
     code VARCHAR NOT NULL,
-	name VARCHAR NOT NULL,
+    name VARCHAR NOT NULL,
     description VARCHAR NOT NULL
 );
 
@@ -204,7 +206,6 @@ CREATE TABLE transaction (
     FOREIGN KEY (receipt_type_id) REFERENCES receipt_type(id),
     FOREIGN KEY (transaction_status_config_id) REFERENCES transaction_status_config(id)
 );
-
 
 -- Tabla: payment_transaction
 CREATE TABLE payment_transaction (
@@ -482,3 +483,161 @@ CREATE TABLE transaction_detail (
     FOREIGN KEY (user_id) REFERENCES "user"(id),
     FOREIGN KEY (product_review_id) REFERENCES product_review(id)
 );
+
+    
+INSERT INTO bank (code, name) VALUES
+('BCI', 'Banco de Crédito e Inversiones (BCI)'),
+('SCOT', 'Scotiabank Chile'),
+('SANT', 'Banco Santander Chile'),
+('CHILE', 'Banco de Chile'),
+('ESTADO', 'Banco del Estado de Chile (BancoEstado)');
+
+INSERT INTO review_config (code, comment_length, min_rating, max_rating)
+VALUES
+('Review', 255, 1, 5);
+
+INSERT INTO customer_type (code, description) VALUES
+('NORM', 'Cliente Normal'),
+('PREM', 'Cliente Premium'),
+('VIP', 'Cliente VIP'),
+('EMP', 'Empleado'),
+('MAY', 'Mayorista'),
+('FREQ', 'Cliente Frecuente'),
+('ONLINE', 'Cliente Online'),
+('PART', 'Cliente Participante de Promociones'),
+('LOYA', 'Cliente de Programa de Lealtad'),
+('DIS', 'Cliente con Descuento Especial');
+
+INSERT INTO identification_type (code, description) VALUES
+('RUT', 'Rol Único Tributario (RUT)'),
+('DNI', 'Documento Nacional de Identidad'),
+('PAS', 'Pasaporte'),
+('CE', 'Cédula de Extranjería'),
+('LIC', 'Licencia de Conducir'),
+('IDN', 'Identificación Nacional'),
+('IDEX', 'Identificación de Extranjero'),
+('OTR', 'Otro tipo de Identificación');
+
+INSERT INTO transaction_status_config (code, description)
+VALUES 
+    ('PENDING', 'La transacción ha sido iniciada pero aún no ha sido completada'),
+    ('COMPLETED', 'La transacción ha sido completada exitosamente'),
+    ('FAILED', 'La transacción ha fallado y no se ha podido procesar'),
+    ('CANCELLED', 'La transacción ha sido cancelada por el usuario o el sistema'),
+    ('REFUNDED', 'El monto de la transacción ha sido reembolsado al cliente'),
+    ('ON_HOLD', 'La transacción está en espera por algún motivo, como revisión manual');
+    
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('TEC', 'Tecnología', NULL);
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('HOME', 'Hogar', NULL);
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('FASHION', 'Moda', NULL);
+
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('TV', 'Televisores', (SELECT id FROM product_category WHERE code = 'TEC'));
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('COMP', 'Computadoras', (SELECT id FROM product_category WHERE code = 'TEC'));
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('KITCH', 'Cocina', (SELECT id FROM product_category WHERE code = 'HOME'));
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('BED', 'Dormitorio', (SELECT id FROM product_category WHERE code = 'HOME'));
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('MEN', 'Hombres', (SELECT id FROM product_category WHERE code = 'FASHION'));
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('WOMEN', 'Mujeres', (SELECT id FROM product_category WHERE code = 'FASHION'));
+
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('SMART_TV', 'Televisores Smart', (SELECT id FROM product_category WHERE code = 'TV'));
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('LAPTOP', 'Laptops', (SELECT id FROM product_category WHERE code = 'COMP'));
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('FRIDGE', 'Refrigeradores', (SELECT id FROM product_category WHERE code = 'KITCH'));
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('BED_FURN', 'Muebles de Dormitorio', (SELECT id FROM product_category WHERE code = 'BED'));
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('M_SHIRTS', 'Camisas para Hombre', (SELECT id FROM product_category WHERE code = 'MEN'));
+INSERT INTO product_category (code, description, parent_category_id) VALUES ('W_SHOES', 'Zapatos para Mujer', (SELECT id FROM product_category WHERE code = 'WOMEN'));
+
+INSERT INTO brand (code, name, description) VALUES 
+    ('SAMSUNG', 'Samsung', 'Líder en tecnología de consumo, incluyendo televisores, smartphones y electrodomésticos'),
+    ('APPLE', 'Apple', 'Reconocida marca de tecnología, famosa por sus iPhones, Macs y otros dispositivos innovadores'),
+    ('SONY', 'Sony', 'Marca global en productos electrónicos, especialmente en audio, video y cámaras');
+
+-- Marcas relacionadas con la categoría Hogar (HOME)
+INSERT INTO brand (code, name, description) VALUES 
+    ('WHIRLPOOL', 'Whirlpool', 'Fabricante líder de electrodomésticos para el hogar, incluyendo refrigeradores y lavadoras'),
+    ('LG', 'LG Electronics', 'Proveedor global de soluciones para el hogar, incluyendo electrodomésticos y productos de tecnología'),
+    ('PHILIPS', 'Philips', 'Marca líder en electrodomésticos y productos de salud para el hogar');
+
+INSERT INTO brand (code, name, description) VALUES 
+    ('NIKE', 'Nike', 'Líder mundial en ropa y calzado deportivo'),
+    ('ADIDAS', 'Adidas', 'Marca global en ropa, calzado y accesorios deportivos'),
+    ('ZARA', 'Zara', 'Marca de moda reconocida por su estilo contemporáneo y tendencias rápidas');
+
+INSERT INTO brand (code, name, description) VALUES 
+    ('HUAWEI', 'Huawei', 'Tecnología de vanguardia en smartphones, wearables y dispositivos de red'),
+    ('PANASONIC', 'Panasonic', 'Empresa electrónica multinacional que ofrece desde cámaras hasta electrodomésticos'),
+    ('BOSCH', 'Bosch', 'Proveedor líder en tecnología y servicios, con productos que van desde herramientas eléctricas hasta electrodomésticos');
+    
+INSERT INTO "attribute" (code, name, description) VALUES 
+    ('SIZE', 'Talle', 'El tamaño del producto, como ropa o calzado, por ejemplo, S, M, L, XL'),
+    ('COLOR', 'Color', 'El color del producto, aplicable a ropa, calzado y accesorios'),
+    ('MATERIAL', 'Material', 'El material del producto, como algodón, cuero, sintético, etc.'),
+    ('GENDER', 'Género', 'El género para el que está diseñado el producto, como Hombre, Mujer, Unisex');
+
+INSERT INTO "attribute" (code, name, description) VALUES 
+    ('SCREEN_SIZE', 'Tamaño de Pantalla', 'El tamaño de la pantalla de dispositivos como televisores y computadoras, medido en pulgadas'),
+    ('RESOLUTION', 'Resolución', 'La resolución de la pantalla de televisores, monitores o laptops, como Full HD, 4K'),
+    ('PROCESSOR', 'Procesador', 'El tipo de procesador en computadoras o smartphones, como Intel Core i7, Apple M1'),
+    ('MEMORY', 'Memoria RAM', 'La cantidad de memoria RAM en un dispositivo, medida en GB'),
+    ('STORAGE', 'Almacenamiento', 'La capacidad de almacenamiento de un dispositivo, como 256GB, 1TB');
+
+INSERT INTO "attribute" (code, name, description) VALUES 
+    ('ENERGY_RATING', 'Clasificación Energética', 'El nivel de eficiencia energética de un electrodoméstico, como A++, B'),
+    ('CAPACITY', 'Capacidad', 'La capacidad de un electrodoméstico, como la cantidad de litros en un refrigerador'),
+    ('DIMENSIONS', 'Dimensiones', 'Las dimensiones físicas de un producto, como alto, ancho y profundidad, medidos en cm'),
+    ('WEIGHT', 'Peso', 'El peso del producto, medido en kilogramos');
+
+INSERT INTO transaction_type (code, name, description)
+VALUES 
+    ('1', 'Venta', 'Venta de productos o servicios al cliente'),
+    ('2', 'Devolución', 'Devolución de productos por parte del cliente'),
+    ('3', 'Cambio', 'Cambio de un producto por otro de igual o diferente valor'),
+    ('4', 'Arqueo', 'Arqueo de caja'),
+    ('5', 'Dotación', 'Dotación de caja'),
+    ('6', 'Retiro', 'Retiro de caja'),
+    ('7', 'Login', 'Login de usuario');
+    
+INSERT INTO receipt_type (code, name, description)
+VALUES 
+    ('F01', 'Factura', 'Comprobante fiscal que detalla la transacción de venta de productos o servicios, incluye IVA'),
+    ('B01', 'Boleta de Venta', 'Comprobante que registra la venta de productos o servicios a un consumidor final, sin detalle fiscal como en la factura'),
+    ('NC01', 'Nota de Crédito', 'Documento que se emite para anular o corregir una factura, por ejemplo, en caso de devoluciones'),
+    ('ND01', 'Nota de Débito', 'Documento utilizado para aumentar el valor de una factura ya emitida, como por intereses o cargos adicionales'),
+    ('GD01', 'Guía de Despacho', 'Documento que acompaña el traslado de mercaderías, detalla los productos transportados pero no es un comprobante de venta en sí mismo');
+    
+INSERT INTO payment_type (code, name, ISO_code)
+VALUES 
+    ('CASH', 'Pago en Efectivo', 'CLP'),
+    ('CCARD', 'Tarjeta de Crédito', 'CLP'),
+    ('DCARD', 'Tarjeta de Débito', 'CLP'),
+    ('BANK', 'Transferencia Bancaria', 'CLP'),
+    ('GCARD', 'Gift Card', 'CLP'),
+    ('MPAGO', 'Mercado Pago', 'CLP'),
+    ('ONEPY', 'One Pay', 'CLP'),
+    ('PAYPL', 'PayPal', 'USD');
+    
+INSERT INTO terminal_category (code, description) VALUES 
+    ('POS', 'Punto de Venta'),
+    ('KIOSK', 'Kiosco de Autoservicio'),
+    ('ONLINE', 'Terminal de Ventas Online'),
+    ('CUST_SERV', 'Terminal de Servicio al Cliente'),
+    ('CHECKOUT', 'Caja Registradora');
+
+Solicitud del usuario: "Necesito un informe de las ventas de todos los clientes que no tienen RUT. Quiero verlas ordenadas por fecha"
+
+Tarea: Genera una consulta SQL que responda a la solicitud del usuario utilizando la estructura de la base de datos proporcionada. La consulta debe ser precisa, eficiente y seguir las mejores prácticas de SQL.
+
+Consideraciones:
+1. Cuando se mencione algún intervalo de tiempo sin mencionar año, deberás considerar el año en curso
+2. Los campos original_id_tx y original_fiscal_number de la tabla transaction sirven para identificar la venta a la cual aplica esa devolución.
+3. Cuando te pidan cantidades o montos vendidos, acumulados, sumados, totales, etc deberás considerar que los productos de las ventas suman y los de las devoluciones restan, lo cual implica que deberás hacer el cálculo. Por ejemplo si se vendieron 5 unidades de un producto y hay una devolución de 2 unidades, debés mostrar el total vendido como 3 unidades. Lo mismo aplica a los totales y subtotales.
+4. Siempre que se pida algún dato que no sea cálculo y que no se especifique qué datos se debe mostrar, tenés que devolver al menos el código y el nombre o descripción.
+
+Instrucciones adicionales:
+1. Utiliza JOIN cuando sea necesario para relacionar tablas.
+2. Incluye filtros de fecha cuando la solicitud mencione un período de tiempo específico.
+3. Utiliza funciones de agregación (SUM, COUNT, AVG) cuando sea apropiado.
+4. Limita los resultados si se especifica un número concreto de registros.
+5. Ordena los resultados de manera relevante para la solicitud.
+
+Por favor, proporciona solo la consulta SQL sin explicaciones adicionales.
+
+Antes de devolverme el resultado, revisalo para que cumpla cada uno de los requisitos de la consulta para retornar el resultado óptimo.
