@@ -193,3 +193,124 @@ GROUP BY
     t.begin_time, c.code, c.first_name, c.last_name
 ORDER BY 
     t.begin_time ASC;
+
+----------------------------------------------------------
+-------------06/10/2024 y 13/10/2024----------------------
+----------------------------------------------------------
+
+--Solicitud del usuario: "Necesito los usuarios de los descuentos que han sido otorgados, los totales agrupados por usuario y ordenados de mayor a menor"
+
+SELECT 
+    u.code AS user_code,
+    u.name AS user_name,
+    u.last_name AS user_last_name,
+    SUM(dt.amount) AS total_discount_amount,
+    SUM(dt.percentage) AS total_discount_percentage
+FROM 
+    discount_transaction dt
+JOIN 
+    "user" u ON dt.user_id = u.id
+JOIN 
+    transaction_detail td ON td.discount_transaction_id = dt.id
+JOIN 
+    transaction t ON t.id = td.id_transaction
+WHERE 
+    t.cancel_flag = FALSE
+GROUP BY 
+    u.code, u.name, u.last_name
+ORDER BY 
+    total_discount_amount DESC;
+
+
+--Solicitud del usuario: "Necesito la cantidad total de ventas del producto BEDSET01 en el mes de julio y agosto" 
+   
+SELECT
+    p.code,
+    p.name,
+    SUM(
+        CASE 
+            WHEN tt.code = '1' THEN td.quantity
+            WHEN tt.code = '2' THEN -td.quantity
+            ELSE 0
+        END
+    ) AS total_quantity
+FROM
+    product p
+    JOIN transaction_detail td ON p.id = td.product_id
+    JOIN transaction t ON td.id_transaction = t.id
+    JOIN transaction_type tt ON t.transaction_type_id = tt.id
+WHERE
+    p.code = 'BEDSET01'
+    AND t.cancel_flag = FALSE
+    AND t.begin_time >= DATE '2024-07-01'
+    AND t.begin_time < DATE '2024-09-01'
+GROUP BY
+    p.code,
+    p.name;
+
+--Solicitud del usuario: "Necesito un informe con el valor promedio de las reviews de todos los productos que se vendieron en el mes de julio y agosto, ordenados por fecha de review"
+SELECT p.code AS product_code, p.name AS product_name, 
+       AVG(pr.rating) AS average_rating, 
+       pr.create_at AS review_date
+FROM product_review pr
+JOIN transaction_detail td ON pr.transaction_detail_id = td.id
+JOIN transaction t ON td.id_transaction = t.id
+JOIN product p ON td.product_id = p.id
+JOIN transaction_type tt ON t.transaction_type_id = tt.id
+WHERE t.begin_time >= '2024-07-01' 
+  AND t.end_time <= '2024-08-31'
+  AND t.cancel_flag = false
+  AND tt.code = '1' -- Venta
+GROUP BY p.code, p.name, pr.create_at
+ORDER BY pr.create_at;
+
+--Solicitud del usuario: "Necesito un informe con el valor promedio de las reviews de todos los productos que se vendieron en el mes de julio y agosto, ordenados por fecha de review y agrupado por producto"
+
+SELECT 
+    p.code AS product_code,
+    p.name AS product_name,
+    AVG(pr.rating) AS avg_rating,
+    pr.create_at AS review_date
+FROM 
+    product_review pr
+JOIN 
+    transaction_detail td ON pr.transaction_detail_id = td.id
+JOIN 
+    product p ON td.product_id = p.id
+JOIN 
+    transaction t ON td.id_transaction = t.id
+JOIN 
+    transaction_type tt ON t.transaction_type_id = tt.id
+WHERE 
+    t.cancel_flag = FALSE
+    AND tt.code = '1' -- Considerar solo ventas
+    AND t.begin_time BETWEEN '2024-07-01' AND '2024-08-31'
+GROUP BY 
+    p.code, p.name, pr.create_at
+ORDER BY 
+    pr.create_at;
+   
+   
+ --Solicitud del usuario: "Necesito un informe con el valor promedio de las reviews de todos los productos que se vendieron en el mes de julio y agosto, ordenados por mayor calificación y agrupado por producto"
+   
+   SELECT 
+    p.code AS product_code,
+    p.name AS product_name,
+    AVG(pr.rating) AS average_rating
+FROM 
+    product_review pr
+JOIN 
+    transaction_detail td ON pr.transaction_detail_id = td.id
+JOIN 
+    transaction t ON td.id_transaction = t.id
+JOIN 
+    product p ON td.product_id = p.id
+WHERE 
+    t.begin_time >= '2024-07-01 00:00:00' 
+    AND t.end_time <= '2024-08-31 23:59:59'
+    AND t.cancel_flag = FALSE
+GROUP BY 
+    p.code, p.name
+ORDER BY 
+    average_rating DESC;
+

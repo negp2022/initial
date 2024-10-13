@@ -106,7 +106,6 @@ CREATE TABLE identification_customer (
     expiration_date DATE NOT NULL,
     type_id INT NOT NULL,
     customer_id INT NOT NULL,
-    --FOREIGN KEY (type_id) REFERENCES identification_type(id),--se debe eliminar
     FOREIGN KEY (customer_id) REFERENCES customer(id)
 );
 
@@ -231,8 +230,12 @@ CREATE TABLE card_payment (
     authorization_code VARCHAR NOT NULL,
     effective_date TIMESTAMP NOT NULL,
     payment_transaction_id INT NOT NULL,
-    FOREIGN KEY (payment_transaction_id) REFERENCES payment_transaction(id)
+    bank_id INTEGER NOT NULL,
+    FOREIGN KEY (payment_transaction_id) REFERENCES payment_transaction(id),
+    CONSTRAINT fk_card_payment_bank
+        FOREIGN KEY (bank_id) REFERENCES bank(id)
 );
+
 
 -- Tabla: bank_transfer_payment
 CREATE TABLE bank_transfer_payment (
@@ -441,18 +444,15 @@ CREATE TABLE review_config (
     max_rating INT NOT NULL
 );
 
--- Tabla: product_review
 CREATE TABLE product_review (
     id SERIAL PRIMARY KEY,
     rating INT NOT NULL,
-    comment VARCHAR NOT NULL,
+    comment VARCHAR NULL,
     create_at TIMESTAMP NOT NULL,
-    product_id INT NOT NULL,
-    review_config_id INT NOT NULL,
     customer_id INT NOT NULL,
-    FOREIGN KEY (product_id) REFERENCES product(id),
-    FOREIGN KEY (review_config_id) REFERENCES review_config(id),
-    FOREIGN KEY (customer_id) REFERENCES customer(id)
+    transaction_detail_id INT,
+    FOREIGN KEY (customer_id) REFERENCES customer(id),
+    FOREIGN KEY (transaction_detail_id) REFERENCES transaction_detail(id)
 );
 
 -- Tabla: discount_transaction
@@ -460,7 +460,10 @@ CREATE TABLE discount_transaction (
     id SERIAL PRIMARY KEY,
     type VARCHAR(50) NOT NULL,
     amount DECIMAL(10, 2) NOT NULL,
-    percentage DECIMAL(5, 2) NOT NULL
+    percentage DECIMAL(5, 2) NOT NULL,
+    user_id INTEGER NOT NULL,
+    CONSTRAINT fk_discount_transaction_user
+        FOREIGN KEY (user_id) REFERENCES "user"(id)
 );
 
 -- Tabla: transaction_detail
@@ -475,10 +478,8 @@ CREATE TABLE transaction_detail (
     product_id INT NOT NULL,
     discount_transaction_id INT,
     user_id INT NOT NULL,
-    product_review_id INT,
     FOREIGN KEY (id_transaction) REFERENCES transaction(id),
     FOREIGN KEY (product_id) REFERENCES product(id),
     FOREIGN KEY (discount_transaction_id) REFERENCES discount_transaction(id),
-    FOREIGN KEY (user_id) REFERENCES "user"(id),
-    FOREIGN KEY (product_review_id) REFERENCES product_review(id)
+    FOREIGN KEY (user_id) REFERENCES "user"(id)
 );
