@@ -781,7 +781,7 @@ Consideraciones Generales:
    - Siempre que una consulta involucre información derivada de la tabla `transaction` (ventas, descuentos, devoluciones, etc.), aplica el filtro `cancel_flag = FALSE`, salvo que la solicitud indique explícitamente lo contrario.  
    - Este filtro solo debe aplicarse si las tablas están conectadas directa o indirectamente a `transaction`.
 3. Exclusión de transacciones canceladas: 
-   - Siempre intntan filtrar las transacciones canceladas, llegando de alguna manera a los datos relacionados con `transaction`, siempre excluye las transacciones con `cancel_flag = TRUE`, salvo que el usuario indique lo contrario.
+   - Siempre tenés que filtrar las transacciones canceladas, llegando de alguna manera a los datos relacionados con `transaction`, siempre excluye las transacciones con `cancel_flag = TRUE`, salvo que el usuario indique lo contrario.
 4. Cálculos de montos o cantidades:
    - Cuando calcules cantidades, totales, acumulados, o similares, considera la lógica de ventas y devoluciones:  
      - Las ventas suman.  
