@@ -761,23 +761,60 @@ INSERT INTO terminal_category (code, description) VALUES
     ('CUST_SERV', 'Terminal de Servicio al Cliente'),
     ('CHECKOUT', 'Caja Registradora');
 
-Solicitud del usuario: "Necesito un informe con el valor promedio de las reviews de todos los productos que se vendieron en el mes de julio y agosto, ordenados por mayor calificación y agrupado por producto"
+INSERT INTO promo_type (code, description)
+VALUES 
+    ('amount', 'Tipo de promoción basada en descuento por monto'),
+    ('percentage', 'Tipo de promoción basada en descuento por porcentaje'),
+    ('newPrice', 'Tipo de promoción basada en un nuevo precio');
+
+Solicitud del usuario: "Solicitud del usuario: "Necesito los usuarios de los descuentos que han sido otorgados, los totales agrupados por usuario y ordenados de mayor a menor"
 
 Tarea: Genera una consulta SQL que responda a la solicitud del usuario utilizando la estructura de la base de datos proporcionada. La consulta debe ser precisa, eficiente y seguir las mejores prácticas de SQL.
 
-Consideraciones:
-1. Cuando se mencione algún intervalo de tiempo sin mencionar año, deberás considerar el año en curso
-2. Los campos original_id_tx y original_fiscal_number de la tabla transaction sirven para identificar la venta a la cual aplica esa devolución.
-3. Cuando te pidan cantidades o montos vendidos, acumulados, sumados, totales, etc deberás considerar que los productos de las ventas suman y los de las devoluciones restan, lo cual implica que deberás hacer el cálculo. Por ejemplo si se vendieron 5 unidades de un producto y hay una devolución de 2 unidades, debés mostrar el total vendido como 3 unidades. Lo mismo aplica a los totales y subtotales.
-4. Siempre que se pida algún dato que no sea cálculo y que no se especifique qué datos se debe mostrar, tenés que devolver al menos el código y el nombre o descripción.
-5. Las transacciones canceladas no deben considerarse nunca, a menos que la solicitud del usuario lo pida expresamente
+Consideraciones Generales:
+1. Relaciones explícitas:
+   - Usa únicamente las relaciones definidas en las claves foráneas del esquema proporcionado. No asumas relaciones que no estén explícitamente especificadas en el modelo de datos.  
+   - Si no existe una relación directa entre las tablas mencionadas en la solicitud, verifica si existe una relación indirecta a través de tablas intermedias. Por ejemplo:  
+     - Para conectar `discount_transaction` y `transaction`, usa la relación indirecta a través de `transaction_detail`.  
+     - En estos casos, utiliza JOIN de manera adecuada para respetar el modelo de datos.
+2. Validación de transacciones:
+   - Siempre que una consulta involucre información derivada de la tabla `transaction` (ventas, descuentos, devoluciones, etc.), aplica el filtro `cancel_flag = FALSE`, salvo que la solicitud indique explícitamente lo contrario.  
+   - Este filtro solo debe aplicarse si las tablas están conectadas directa o indirectamente a `transaction`.
+3. Exclusión de transacciones canceladas: 
+   - Siempre intntan filtrar las transacciones canceladas, llegando de alguna manera a los datos relacionados con `transaction`, siempre excluye las transacciones con `cancel_flag = TRUE`, salvo que el usuario indique lo contrario.
+4. Cálculos de montos o cantidades:
+   - Cuando calcules cantidades, totales, acumulados, o similares, considera la lógica de ventas y devoluciones:  
+     - Las ventas suman.  
+     - Las devoluciones restan.  
+        - Por ejemplo, si se vendieron 5 unidades y hubo una devolución de 2, el total neto debe ser 3 unidades.
+5. Uso de claves descriptivas:
+   - Si no se especifica qué datos devolver, siempre incluye los campos descriptivos como `code`, `name` o `description`.
+6. Filtros temporales:
+   - Si la solicitud menciona meses, días o años, utiliza funciones como `EXTRACT(MONTH)` y `EXTRACT(YEAR)` para filtrar las fechas.  
+   - Si no se especifica un año, asume el año actual como predeterminado.
+7. Consulta fallida por relaciones inexistentes:
+   - Si no puedes conectar las tablas mencionadas en la solicitud porque no existe una relación explícita en el modelo, responde con un mensaje claro:  
+     `"No es posible generar la consulta porque no existe una relación explícita entre las tablas indicadas."`
 
-Instrucciones adicionales:
-1. Utiliza JOIN cuando sea necesario para relacionar tablas.
-2. Incluye filtros de fecha cuando la solicitud mencione un período de tiempo específico.
-3. Utiliza funciones de agregación (SUM, COUNT, AVG) cuando sea apropiado.
-4. Limita los resultados si se especifica un número concreto de registros.
-5. Ordena los resultados de manera relevante para la solicitud.
+
+Instrucciones de Generación de Consultas:
+1. Uso de JOIN:
+   - Relaciona las tablas únicamente mediante las claves foráneas definidas en el esquema.  
+2. Uso de funciones de agregación:
+   - Aplica funciones como `SUM`, `COUNT` o `AVG` cuando sea necesario calcular totales, promedios u otros valores acumulados.  
+3. Orden y agrupamiento:
+   - Agrupa y ordena los resultados de manera relevante según lo solicitado.  
+4. Filtros específicos:
+   - Incluye filtros como fechas, montos, o códigos, solo si se mencionan explícitamente en la solicitud.  
+5. Validación de relaciones:
+   - Antes de construir la consulta, verifica que todas las tablas y columnas mencionadas existan en el modelo.  
+
+
+Antes de devolver la consulta SQL, valida que:
+- Los filtros de fecha cumplan exactamente con la solicitud del usuario.
+- Se utilicen únicamente las relaciones explícitas definidas en el esquema.
+- La lógica de ventas y devoluciones sea precisa (ventas suman, devoluciones restan).
+- Las transacciones canceladas no estén incluidas, salvo indicación explícita del usuario.
 
 Por favor, proporciona solo la consulta SQL sin explicaciones adicionales.
 

@@ -620,3 +620,9 @@ INSERT INTO terminal_category (code, description) VALUES
     ('ONLINE', 'Terminal de Ventas Online'),
     ('CUST_SERV', 'Terminal de Servicio al Cliente'),
     ('CHECKOUT', 'Caja Registradora');
+
+INSERT INTO promo_type (code, description)
+VALUES 
+    ('amount', 'Tipo de promoción basada en descuento por monto'),
+    ('percentage', 'Tipo de promoción basada en descuento por porcentaje'),
+    ('newPrice', 'Tipo de promoción basada en un nuevo precio');
